@@ -1,0 +1,28 @@
+Package: SDGsR
+Title: Interface with the UN SDGs API to get data about the Sustainable Development Goals 
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Matt",
+           family = "Grainger",
+           role = c("aut", "cre"),
+           email = "Matthew.Grainger@NINA.no",
+           comment = c(ORCID = "0000-0001-8426-6495"))
+Description: The package allows the user to interface with the UN SDGs data portal through the SDGS API (https://unstats.un.org/SDGAPI/swagger/). The package has a few simple functions that allow the user to get Goals, Targets and Indicators text and get a dataframe of specific indicators for specific countries. 
+License:  `use_gpl3_license()` 
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
+Depends: 
+    R (>= 3.5.0),
+    tidyverse,
+    jsonlite,
+    here,
+    readr
+Suggests:
+    knitr,
+    rmarkdown,
+    ggpubr,
+    kableExtra
+VignetteBuilder: 
+    knitr
