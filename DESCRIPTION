@@ -8,7 +8,7 @@ Authors@R:
            email = "Matthew.Grainger@NINA.no",
            comment = c(ORCID = "0000-0001-8426-6495"))
 Description: The package allows the user to interface with the UN SDGs data portal through the SDGS API (https://unstats.un.org/SDGAPI/swagger/). The package has a few simple functions that allow the user to get Goals, Targets and Indicators text and get a dataframe of specific indicators for specific countries. 
-License:  `use_gpl3_license()` 
+License:  use_gpl3_license() 
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)

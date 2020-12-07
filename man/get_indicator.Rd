@@ -6,6 +6,11 @@
 \usage{
 get_indicator(Country = "578", indicator = "1.1.1")
 }
+\arguments{
+\item{Country}{the M49 code for the country you are interested in}
+
+\item{indicator}{the code for the indicator you are interested in}
+}
 \value{
 dataframe of indicator and values
 }
