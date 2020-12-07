@@ -23,6 +23,7 @@ Suggests:
     knitr,
     rmarkdown,
     ggpubr,
-    kableExtra
+    kableExtra,
+    shiny
 VignetteBuilder: 
     knitr
