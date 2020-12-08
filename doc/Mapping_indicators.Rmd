@@ -18,7 +18,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 The first step is to load the required libraries. 
 
-```{r}
+```{r, message=FALSE}
 library(SDGsR)
 library(tidyverse)
 library(plotly)
@@ -88,10 +88,26 @@ Ind_15_data %>%
 mapp_data=mapp_data %>% 
   full_join(lookup_country_codes, copy=FALSE,by=c("geoAreaName"="country_or_area")) %>% 
   select(iso_alpha3_code, geoAreaName, value, seriesDescription, Indicator, timePeriodStart) %>% 
+  drop_na(iso_alpha3_code) %>%
   drop_na(Indicator)
 
 ```
 
+```{r}
+p<-mapp_data %>% 
+  filter(Indicator=="Ind_15.6.1") %>%
+  filter(seriesDescription=="Countries that are contracting Parties to the International Treaty on Plant Genetic Resources for Food and Agriculture (PGRFA) (1 = YES; 0 = NO)") %>% 
+  drop_na(iso_alpha3_code) %>% 
+  plot_geo() %>% add_trace(
+  z = ~value, frame= ~timePeriodStart,color = ~value, colors = 'Oranges',
+  text = ~geoAreaName, locations = ~iso_alpha3_code) %>% layout(title="Countries that are contracting Parties to PGRFA (1 = YES; 0 = NO)")
+p
+
+# To save the plot locally as a html uncomment the following lines
+#library(htmlwidgets)
+#saveWidget(p, "p1.html", selfcontained = T, libdir = "lib")
+
+```
 
 Finally, we can cobble together a quick ShinyApp to map out the data. The user gets to choose the Indicator, the data series and Year, and this is plotted on a World map.
 
