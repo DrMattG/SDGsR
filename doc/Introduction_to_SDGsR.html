@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<meta name="author" content="Matt Grainger" />
+
+<meta name="date" content="2020-12-08" />
+
+<title>Introduction to SDGsR - an interface to the UN Sustainablity Goals API</title>
+
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.35;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 35px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; } 
+code > span.er { color: #a61717; background-color: #e3d2d2; } 
+</style>
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">Introduction to SDGsR - an interface to the UN Sustainablity Goals API</h1>
+<h4 class="author">Matt Grainger</h4>
+<h4 class="date">2020-12-08</h4>
+
+
+
+<p>Here is a basic runthrough of the {SDGsR} workflow. The package interfaces with UN SDGs API (see <a href="https://unstats.un.org/SDGAPI/swagger/" class="uri">https://unstats.un.org/SDGAPI/swagger/</a>) and allows the user to get the text of the 17 Goals, each associated Target and Indicators. This post: <a href="https://rpubs.com/angelamhkim/sdgapi" class="uri">https://rpubs.com/angelamhkim/sdgapi</a> was the inspiration for this package. Using the SDGsR::get_indicator() function one can get the indicator data for a specific country and indicator.</p>
+<div id="what-are-the-sdgs" class="section level2">
+<h2>What are the SDGs?</h2>
+<p>For a comprehensive explanation of what the SDGs are and how they were developed please see <a href="https://www.undp.org/content/undp/en/home/sustainable-development-goals.html" class="uri">https://www.undp.org/content/undp/en/home/sustainable-development-goals.html</a></p>
+</div>
+<div id="using-the-sdgsr-package" class="section level2">
+<h2>Using the {SDGsR} package</h2>
+<p>Currently, there are five functions in the package which facilitate interaction with the SDGs API.</p>
+<p>To get the text of the Goals we can use the SDGsR::get_SDGs_goals() function. This gathers together all the Goals in to a single dataframe.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">library</span>(SDGsR)</a>
+<a class="sourceLine" id="cb1-2" title="2">Goals&lt;-<span class="kw">get_SDGs_goals</span>()</a>
+<a class="sourceLine" id="cb1-3" title="3">Goals <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(goal, code, description ) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="st">  </span><span class="kw">sample_n</span>(.,<span class="dv">3</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="co">#randomly select three rows to display</span></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="st">  </span>kableExtra<span class="op">::</span><span class="kw">kable</span>()</a></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+goal
+</th>
+<th style="text-align:left;">
+code
+</th>
+<th style="text-align:left;">
+description
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+16
+</td>
+<td style="text-align:left;">
+16.a
+</td>
+<td style="text-align:left;">
+Strengthen relevant national institutions, including through international cooperation, for building capacity at all levels, in particular in developing countries, to prevent violence and combat terrorism and crime
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+14
+</td>
+<td style="text-align:left;">
+14.a
+</td>
+<td style="text-align:left;">
+Increase scientific knowledge, develop research capacity and transfer marine technology, taking into account the Intergovernmental Oceanographic Commission Criteria and Guidelines on the Transfer of Marine Technology, in order to improve ocean health and to enhance the contribution of marine biodiversity to the development of developing countries, in particular small island developing States and least developed countries
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+8
+</td>
+<td style="text-align:left;">
+8.6
+</td>
+<td style="text-align:left;">
+By 2020, substantially reduce the proportion of youth not in employment, education or training
+</td>
+</tr>
+</tbody>
+</table>
+<p>The most useful function is the SDGsR::get_indicator() function that allows the user to query the data for a specific indicator in a specific country. First we need to make sure we know which is the correct code for the country and for the indicator as the API uses these to distinguish which data to export.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="kw">head</span>(<span class="kw">get_country_list</span>())</a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="co">#&gt; [1] &quot;Afghanistan&quot;    &quot;Åland Islands&quot;  &quot;Albania&quot;        &quot;Algeria&quot;       </span></a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="co">#&gt; [5] &quot;American Samoa&quot; &quot;Andorra&quot;</span></a></code></pre></div>
+<p>To find a specific indicator we need to know the right code to use. We can get a list of all the indicators by using SDGsR::get_indicator_list. I am interested in the indicators that are in Goal 15 Life on Land.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1">ind_lst&lt;-<span class="kw">get_indicator_list</span>()</a>
+<a class="sourceLine" id="cb3-2" title="2"></a>
+<a class="sourceLine" id="cb3-3" title="3">ind_lst <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb3-4" title="4"><span class="st">  </span><span class="kw">filter</span>(goal<span class="op">==</span><span class="st">&quot;15&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb3-5" title="5"><span class="st">  </span><span class="kw">select</span>(target, code, description) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb3-6" title="6"><span class="st">  </span>kableExtra<span class="op">::</span><span class="kw">kable</span>()</a></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+target
+</th>
+<th style="text-align:left;">
+code
+</th>
+<th style="text-align:left;">
+description
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+15.1
+</td>
+<td style="text-align:left;">
+15.1.1
+</td>
+<td style="text-align:left;">
+Forest area as a proportion of total land area
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+15.1
+</td>
+<td style="text-align:left;">
+15.1.2
+</td>
+<td style="text-align:left;">
+Proportion of important sites for terrestrial and freshwater biodiversity that are covered by protected areas, by ecosystem type
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+15.2
+</td>
+<td style="text-align:left;">
+15.2.1
+</td>
+<td style="text-align:left;">
+Progress towards sustainable forest management
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+15.3
+</td>
+<td style="text-align:left;">
+15.3.1
+</td>
+<td style="text-align:left;">
+Proportion of land that is degraded over total land area
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+15.4
+</td>
+<td style="text-align:left;">
+15.4.1
+</td>
+<td style="text-align:left;">
+Coverage by protected areas of important sites for mountain biodiversity
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+15.4
+</td>
+<td style="text-align:left;">
+15.4.2
+</td>
+<td style="text-align:left;">
+Mountain Green Cover Index
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+15.5
+</td>
+<td style="text-align:left;">
+15.5.1
+</td>
+<td style="text-align:left;">
+Red List Index
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+15.6
+</td>
+<td style="text-align:left;">
+15.6.1
+</td>
+<td style="text-align:left;">
+Number of countries that have adopted legislative, administrative and policy frameworks to ensure fair and equitable sharing of benefits
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+15.8
+</td>
+<td style="text-align:left;">
+15.8.1
+</td>
+<td style="text-align:left;">
+Proportion of countries adopting relevant national legislation and adequately resourcing the prevention or control of invasive alien species
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+15.9
+</td>
+<td style="text-align:left;">
+15.9.1
+</td>
+<td style="text-align:left;">
+<ol style="list-style-type: lower-alpha">
+<li>Number of countries that have established national targets in accordance with or similar to Aichi Biodiversity Target 2 of the Strategic Plan for Biodiversity 2011–2020 in their national biodiversity strategy and action plans and the progress reported towards these targets; and (b) integration of biodiversity into national accounting and reporting systems, defined as implementation of the System of Environmental-Economic Accounting
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+15.a
+</td>
+<td style="text-align:left;">
+15.a.1
+</td>
+<td style="text-align:left;">
+<ol style="list-style-type: lower-alpha">
+<li>Official development assistance on conservation and sustainable use of biodiversity; and (b) revenue generated and finance mobilized from biodiversity-relevant economic instruments
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+15.b
+</td>
+<td style="text-align:left;">
+15.b.1
+</td>
+<td style="text-align:left;">
+<ol style="list-style-type: lower-alpha">
+<li>Official development assistance on conservation and sustainable use of biodiversity; and (b) revenue generated and finance mobilized from biodiversity-relevant economic instruments
+</td>
+</tr>
+</tbody>
+</table></li>
+</ol></li>
+</ol></li>
+</ol>
+<p>Let’s look at the indicator for Target 15.4, “15.4.1: Coverage by protected areas of important sites for mountain biodiversity” and we will specify Norway as our country of interest. We know that Norway is named Norway on our country list (which is obvious but some countries are named in different ways to how we might commonly expect, e.g. Vietnam is specified as “Viet Nam”, Venezuela is specified as “Venezuela (Bolivarian Republic of)”).</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1">Norway_code&lt;-<span class="kw">lookup_country</span>(<span class="dt">code=</span><span class="st">&quot;M49&quot;</span>, <span class="dt">country =</span> <span class="st">&quot;Norway&quot;</span>)</a>
+<a class="sourceLine" id="cb4-2" title="2">Norway_code</a>
+<a class="sourceLine" id="cb4-3" title="3"><span class="co">#&gt; [1] 578</span></a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1">Norway&lt;-<span class="kw">get_indicator</span>(<span class="dt">Country =</span> Norway_code, <span class="dt">indicator =</span> <span class="st">&quot;15.4.1&quot;</span>)</a></code></pre></div>
+<p>We can then make a plot of this data using the SDGsR::SDGs_colours() function.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1"></a>
+<a class="sourceLine" id="cb6-2" title="2">p1&lt;-Norway <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb6-3" title="3"><span class="st">  </span><span class="kw">select</span>(timePeriodStart,value,seriesDescription) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb6-4" title="4"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(timePeriodStart, <span class="kw">as.numeric</span>(value)))<span class="op">+</span></a>
+<a class="sourceLine" id="cb6-5" title="5"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">colour=</span><span class="kw">SDGs_cols</span>(<span class="st">&quot;Goal15&quot;</span>))<span class="op">+</span></a>
+<a class="sourceLine" id="cb6-6" title="6"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&quot;Year&quot;</span>, <span class="dt">y=</span><span class="st">&quot;% Mountain Area Protected&quot;</span>)<span class="op">+</span></a>
+<a class="sourceLine" id="cb6-7" title="7"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="dt">label=</span><span class="kw">paste0</span>(Norway<span class="op">$</span>seriesDescription[<span class="dv">1</span>])) <span class="op">+</span></a>
+<a class="sourceLine" id="cb6-8" title="8"><span class="st">  </span>ggpubr<span class="op">::</span><span class="kw">theme_pubclean</span>()<span class="op">+</span></a>
+<a class="sourceLine" id="cb6-9" title="9"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">12</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1">p1</a></code></pre></div>
+<p><img src="data:image/png;base64,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" /><!-- --></p>
+</div>
+
+
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

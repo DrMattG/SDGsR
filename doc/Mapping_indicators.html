@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<meta name="author" content="Matt" />
+
+
+<title>Mapping SDGs Indicators</title>
+
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.35;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 35px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; } 
+code > span.er { color: #a61717; background-color: #e3d2d2; } 
+</style>
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">Mapping SDGs Indicators</h1>
+<h4 class="author">Matt</h4>
+<h4 class="date">4 12 2020</h4>
+
+
+
+<div id="get-the-data" class="section level2">
+<h2>Get the data</h2>
+<p>The first step is to load the required libraries.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">library</span>(SDGsR)</a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="kw">library</span>(tidyverse)</a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="kw">library</span>(plotly)</a></code></pre></div>
+<pre><code>## 
+## Attaching package: &#39;plotly&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:ggplot2&#39;:
+## 
+##     last_plot</code></pre>
+<pre><code>## The following object is masked from &#39;package:stats&#39;:
+## 
+##     filter</code></pre>
+<pre><code>## The following object is masked from &#39;package:graphics&#39;:
+## 
+##     layout</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1"><span class="kw">library</span>(shiny)</a></code></pre></div>
+<pre><code>## 
+## Attaching package: &#39;shiny&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:SDGsR&#39;:
+## 
+##     runExample</code></pre>
+<pre><code>## The following object is masked from &#39;package:jsonlite&#39;:
+## 
+##     validate</code></pre>
+<p>We are going to select Indicators from three Targets in Goal 15 “Life on land”. The Targets we are interested in are:</p>
+<ul>
+<li><p>Target 15.6 <em>“Promote fair and equitable sharing of the benefits arising from the utilization of genetic resources and promote appropriate access to such resources, as internationally agreed”</em>;</p></li>
+<li><p>Target 15.9 <em>“By 2020, integrate ecosystem and biodiversity values into national and local planning, development processes, poverty reduction strategies and accounts”</em>; and</p></li>
+<li><p>Target 15.a.1 <em>“Mobilize and significantly increase financial resources from all sources to conserve and sustainably use biodiversity and ecosystems”</em></p></li>
+</ul>
+<p>The associated Indicators are:</p>
+<ul>
+<li><p>15.6.1 <em>“Number of countries that have adopted legislative, administrative and policy frameworks to ensure fair and equitable sharing of benefits”</em></p></li>
+<li><p>15.9.1 <em>“(a) Number of countries that have established national targets in accordance with or similar to Aichi Biodiversity Target 2 of the Strategic Plan for Biodiversity 2011–2020 in their national biodiversity strategy and action plans and the progress reported towards these targets; and (b) integration of biodiversity into national accounting and reporting systems, defined as implementation of the System of Environmental-Economic Accounting”</em></p></li>
+<li><p>15.a.1 <em>“Official development assistance on conservation and sustainable use of biodiversity; and (b) revenue generated and finance mobilized from biodiversity-relevant economic instruments”</em></p></li>
+</ul>
+<p>There are several data series that are used to inform each Indicator (some may have one but others will have two or three different data series associated with them).</p>
+<p>We can use the <em>SDGSR::get_indicator_data()</em> to connect to the SDGs API and download the data we need.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1">Ind_<span class="dv">15</span>.<span class="fl">6.1</span>&lt;-<span class="kw">get_indicator_data</span>(<span class="dt">indicator =</span> <span class="st">&#39;15.6.1&#39;</span>)</a>
+<a class="sourceLine" id="cb10-2" title="2">Ind_<span class="dv">15</span>.<span class="fl">9.1</span>&lt;-<span class="kw">get_indicator_data</span>(<span class="dt">indicator =</span> <span class="st">&#39;15.9.1&#39;</span>)</a>
+<a class="sourceLine" id="cb10-3" title="3">Ind_<span class="fl">15.</span>a<span class="fl">.1</span>&lt;-<span class="kw">get_indicator_data</span>(<span class="dt">indicator =</span> <span class="st">&#39;15.a.1&#39;</span>)</a></code></pre></div>
+<p>Now we join the three datasets together and select the name of the country, the year, the Indicator value, the description of the series that the value relates to and the ISO three letter country code.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1">Ind_<span class="dv">15</span>.<span class="fl">6.1</span>&lt;-Ind_<span class="dv">15</span>.<span class="fl">6.1</span> <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb11-2" title="2"><span class="st">  </span><span class="kw">group_by</span>(seriesDescription, geoAreaName) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb11-3" title="3"><span class="st">  </span><span class="kw">select</span>(geoAreaName, timePeriodStart,value, seriesDescription, geoAreaCode)</a>
+<a class="sourceLine" id="cb11-4" title="4">Ind_<span class="dv">15</span>.<span class="fl">9.1</span>&lt;-Ind_<span class="dv">15</span>.<span class="fl">9.1</span> <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb11-5" title="5"><span class="st">  </span><span class="kw">group_by</span>(seriesDescription, geoAreaName) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb11-6" title="6"><span class="st">  </span><span class="kw">select</span>(geoAreaName, timePeriodStart,value, seriesDescription, geoAreaCode)</a>
+<a class="sourceLine" id="cb11-7" title="7">Ind_<span class="fl">15.</span>a<span class="fl">.1</span>&lt;-Ind_<span class="fl">15.</span>a<span class="fl">.1</span> <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb11-8" title="8"><span class="st">  </span><span class="kw">group_by</span>(seriesDescription, geoAreaName) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb11-9" title="9"><span class="st">  </span><span class="kw">select</span>(geoAreaName, timePeriodStart,value, seriesDescription, geoAreaCode)</a>
+<a class="sourceLine" id="cb11-10" title="10">Ind_<span class="dv">15</span>_data=<span class="kw">rbind</span>(Ind_<span class="dv">15</span>.<span class="fl">6.1</span>,Ind_<span class="dv">15</span>.<span class="fl">9.1</span>, Ind_<span class="fl">15.</span>a<span class="fl">.1</span>)</a>
+<a class="sourceLine" id="cb11-11" title="11">Ind_<span class="dv">15</span>_data<span class="op">$</span>Indicator=<span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">&quot;Ind_15.6.1&quot;</span>, <span class="kw">dim</span>(Ind_<span class="dv">15</span>.<span class="fl">6.1</span>)[<span class="dv">1</span>]), <span class="kw">rep</span>(<span class="st">&quot;Ind_15.9.1&quot;</span>, <span class="kw">dim</span>(Ind_<span class="dv">15</span>.<span class="fl">9.1</span>)[<span class="dv">1</span>]), <span class="kw">rep</span>(<span class="st">&quot;Ind_15.a.1&quot;</span>, <span class="kw">dim</span>(Ind_<span class="fl">15.</span>a<span class="fl">.1</span>)[<span class="dv">1</span>]))</a>
+<a class="sourceLine" id="cb11-12" title="12"></a>
+<a class="sourceLine" id="cb11-13" title="13">Ind_<span class="dv">15</span>_data <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb11-14" title="14"><span class="st">  </span><span class="kw">head</span>(<span class="dv">4</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb11-15" title="15"><span class="st">  </span>kableExtra<span class="op">::</span><span class="kw">kable</span>()</a></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+geoAreaName
+</th>
+<th style="text-align:right;">
+timePeriodStart
+</th>
+<th style="text-align:left;">
+value
+</th>
+<th style="text-align:left;">
+seriesDescription
+</th>
+<th style="text-align:left;">
+geoAreaCode
+</th>
+<th style="text-align:left;">
+Indicator
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Afghanistan
+</td>
+<td style="text-align:right;">
+2012
+</td>
+<td style="text-align:left;">
+224
+</td>
+<td style="text-align:left;">
+Total reported number of Standard Material Transfer Agreements (SMTAs) transferring plant genetic resources for food and agriculture to the country (number)
+</td>
+<td style="text-align:left;">
+4
+</td>
+<td style="text-align:left;">
+Ind_15.6.1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Afghanistan
+</td>
+<td style="text-align:right;">
+2013
+</td>
+<td style="text-align:left;">
+264
+</td>
+<td style="text-align:left;">
+Total reported number of Standard Material Transfer Agreements (SMTAs) transferring plant genetic resources for food and agriculture to the country (number)
+</td>
+<td style="text-align:left;">
+4
+</td>
+<td style="text-align:left;">
+Ind_15.6.1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Afghanistan
+</td>
+<td style="text-align:right;">
+2014
+</td>
+<td style="text-align:left;">
+299
+</td>
+<td style="text-align:left;">
+Total reported number of Standard Material Transfer Agreements (SMTAs) transferring plant genetic resources for food and agriculture to the country (number)
+</td>
+<td style="text-align:left;">
+4
+</td>
+<td style="text-align:left;">
+Ind_15.6.1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Afghanistan
+</td>
+<td style="text-align:right;">
+2015
+</td>
+<td style="text-align:left;">
+399
+</td>
+<td style="text-align:left;">
+Total reported number of Standard Material Transfer Agreements (SMTAs) transferring plant genetic resources for food and agriculture to the country (number)
+</td>
+<td style="text-align:left;">
+4
+</td>
+<td style="text-align:left;">
+Ind_15.6.1
+</td>
+</tr>
+</tbody>
+</table>
+<p>Then we can join the Indicator data with our lookuptable (in the {SDGsR} package) so that we have the ISO3 code along with the country name, value of the Indicator and the year of the measure.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1"><span class="kw">data</span>(<span class="st">&quot;lookup_country_codes&quot;</span>)</a>
+<a class="sourceLine" id="cb12-2" title="2"></a>
+<a class="sourceLine" id="cb12-3" title="3">Ind_<span class="dv">15</span>_data <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb12-4" title="4"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">region=</span><span class="kw">tolower</span>(geoAreaName)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb12-5" title="5"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">value=</span><span class="kw">as.numeric</span>(value))-&gt;mapp_data</a>
+<a class="sourceLine" id="cb12-6" title="6"></a>
+<a class="sourceLine" id="cb12-7" title="7">mapp_data=mapp_data <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb12-8" title="8"><span class="st">  </span><span class="kw">full_join</span>(lookup_country_codes, <span class="dt">copy=</span><span class="ot">FALSE</span>,<span class="dt">by=</span><span class="kw">c</span>(<span class="st">&quot;geoAreaName&quot;</span>=<span class="st">&quot;country_or_area&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb12-9" title="9"><span class="st">  </span><span class="kw">select</span>(iso_alpha3_code, geoAreaName, value, seriesDescription, Indicator, timePeriodStart) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb12-10" title="10"><span class="st">  </span><span class="kw">drop_na</span>(Indicator)</a></code></pre></div>
+<p>Finally, we can cobble together a quick ShinyApp to map out the data. The user gets to choose the Indicator, the data series and Year, and this is plotted on a World map.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" title="1"><span class="kw">shinyApp</span>(</a>
+<a class="sourceLine" id="cb13-2" title="2"></a>
+<a class="sourceLine" id="cb13-3" title="3">  <span class="dt">ui =</span> <span class="kw">fluidPage</span>(</a>
+<a class="sourceLine" id="cb13-4" title="4">    <span class="kw">selectInput</span>(<span class="st">&quot;Indi&quot;</span>, <span class="st">&quot;Indicator:&quot;</span>,</a>
+<a class="sourceLine" id="cb13-5" title="5">                <span class="dt">choices =</span> <span class="kw">unique</span>(mapp_data<span class="op">$</span>Indicator)),</a>
+<a class="sourceLine" id="cb13-6" title="6">    <span class="kw">selectInput</span>(<span class="st">&quot;Seri&quot;</span>, <span class="st">&quot;Series:&quot;</span>, <span class="dt">choices=</span>(<span class="kw">unique</span>(mapp_data<span class="op">$</span>seriesDescription))),</a>
+<a class="sourceLine" id="cb13-7" title="7">    <span class="kw">selectInput</span>(<span class="st">&quot;Yr&quot;</span>, <span class="st">&quot;Year:&quot;</span>, <span class="dt">choices=</span>(<span class="kw">unique</span>(mapp_data<span class="op">$</span>timePeriodStart))),</a>
+<a class="sourceLine" id="cb13-8" title="8">  <span class="kw">plotlyOutput</span>(<span class="st">&quot;Plot1&quot;</span>)</a>
+<a class="sourceLine" id="cb13-9" title="9">  ),</a>
+<a class="sourceLine" id="cb13-10" title="10"></a>
+<a class="sourceLine" id="cb13-11" title="11">  <span class="dt">server =</span> <span class="cf">function</span>(input, output,session) {</a>
+<a class="sourceLine" id="cb13-12" title="12">    data1=<span class="kw">reactive</span>({</a>
+<a class="sourceLine" id="cb13-13" title="13">      mapp_data <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb13-14" title="14"><span class="st">        </span><span class="kw">filter</span>(Indicator<span class="op">==</span>input<span class="op">$</span>Indi) </a>
+<a class="sourceLine" id="cb13-15" title="15">        </a>
+<a class="sourceLine" id="cb13-16" title="16">    })</a>
+<a class="sourceLine" id="cb13-17" title="17">    <span class="kw">observeEvent</span>(input<span class="op">$</span>Indi,{</a>
+<a class="sourceLine" id="cb13-18" title="18">      <span class="kw">updateSelectInput</span>(session, <span class="st">&quot;Seri&quot;</span>,<span class="dt">choices=</span>(<span class="kw">unique</span>(<span class="kw">data1</span>()<span class="op">$</span>seriesDescription)))</a>
+<a class="sourceLine" id="cb13-19" title="19">    })</a>
+<a class="sourceLine" id="cb13-20" title="20">    data2=<span class="kw">reactive</span>({</a>
+<a class="sourceLine" id="cb13-21" title="21">     <span class="kw">filter</span>(<span class="kw">data1</span>(),seriesDescription<span class="op">==</span>input<span class="op">$</span>Seri)</a>
+<a class="sourceLine" id="cb13-22" title="22">        })</a>
+<a class="sourceLine" id="cb13-23" title="23">    <span class="kw">observeEvent</span>(input<span class="op">$</span>Seri,{</a>
+<a class="sourceLine" id="cb13-24" title="24">      <span class="kw">updateSelectInput</span>(session, <span class="st">&quot;Yr&quot;</span>,<span class="dt">choices=</span>(<span class="kw">unique</span>(<span class="kw">data2</span>()<span class="op">$</span>timePeriodStart)))</a>
+<a class="sourceLine" id="cb13-25" title="25">      })</a>
+<a class="sourceLine" id="cb13-26" title="26">    </a>
+<a class="sourceLine" id="cb13-27" title="27">    data3=<span class="kw">reactive</span>({</a>
+<a class="sourceLine" id="cb13-28" title="28">        <span class="kw">filter</span>(<span class="kw">data2</span>(),timePeriodStart<span class="op">==</span>input<span class="op">$</span>Yr)</a>
+<a class="sourceLine" id="cb13-29" title="29">      })</a>
+<a class="sourceLine" id="cb13-30" title="30">    output<span class="op">$</span>Plot1 =<span class="st"> </span><span class="kw">renderPlotly</span>({</a>
+<a class="sourceLine" id="cb13-31" title="31">      <span class="kw">plot_geo</span>(<span class="kw">data3</span>()) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">add_trace</span>(</a>
+<a class="sourceLine" id="cb13-32" title="32">  <span class="dt">z =</span> <span class="op">~</span>value, <span class="dt">color =</span> <span class="op">~</span>value, <span class="dt">colors =</span> <span class="st">&#39;Oranges&#39;</span>,</a>
+<a class="sourceLine" id="cb13-33" title="33">  <span class="dt">text =</span> <span class="op">~</span>geoAreaName, <span class="dt">locations =</span> <span class="op">~</span>iso_alpha3_code)</a>
+<a class="sourceLine" id="cb13-34" title="34"></a>
+<a class="sourceLine" id="cb13-35" title="35">    })</a>
+<a class="sourceLine" id="cb13-36" title="36">  },</a>
+<a class="sourceLine" id="cb13-37" title="37"></a>
+<a class="sourceLine" id="cb13-38" title="38">  <span class="dt">options =</span> <span class="kw">list</span>(<span class="dt">height =</span> <span class="dv">500</span>)</a>
+<a class="sourceLine" id="cb13-39" title="39">)</a></code></pre></div>
+<pre><code>## 
+## Listening on http://127.0.0.1:8395</code></pre>
+<pre><code>## Warning: `arrange_()` is deprecated as of dplyr 0.7.0.
+## Please use `arrange()` instead.
+## See vignette(&#39;programming&#39;) for more help
+## This warning is displayed once every 8 hours.
+## Call `lifecycle::last_warnings()` to see where this warning was generated.</code></pre>
+<p><img src="data:image/png;base64,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zBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMwQQADMEEAAzBBAAMz8fzN+j6DyVE+iAAAAAElFTkSuQmCC" /><!-- --></p>
+<p>```</p>
+</div>
+
+
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
