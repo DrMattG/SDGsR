@@ -2,7 +2,9 @@
 #' @description calls the UN SDGs API to get the Goals data
 #' @return writes an .RDS file to a "data" folder listing Goals, Targets and indicators
 #' @examples get_SDGs_goals()
+#' @import here jsonlite readr tidyverse
 #' @export
+#'
 
 get_SDGs_goals<-function(){
   #all goals

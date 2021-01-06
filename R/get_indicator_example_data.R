@@ -8,8 +8,6 @@
 #' @export
 
 get_indicator_example_data<-function(){
-library(SDGsR)
-library(tidyverse)
 
 Ind_15.6.1<-get_indicator_data(indicator = '15.6.1')
 Ind_15.9.1<-get_indicator_data(indicator = '15.9.1')

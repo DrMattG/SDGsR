@@ -25,6 +25,8 @@ Suggests:
     ggpubr,
     kableExtra,
     shiny,
-    plotly
+    plotly,
+    dplyr,
+    stringi
 VignetteBuilder: 
     knitr
