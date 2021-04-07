@@ -1,6 +1,7 @@
 #' runExample
 #' @description Run ShinyApp examples
-#' @return A shiny app
+#' @param example Can only be "indicator.R" at present
+#' @return A shiny app with plotly interactive map
 #' @export
 runExample <- function(example) {
   # locate all the shiny app examples that exist

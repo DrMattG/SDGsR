@@ -7,7 +7,8 @@
 get_SDGs_goals()
 }
 \value{
-writes an .RDS file to a "data" folder listing Goals, Targets and indicators
+writes an .RDS file to a "data"
+folder listing Goals, Targets and indicators
 }
 \description{
 calls the UN SDGs API to get the Goals data

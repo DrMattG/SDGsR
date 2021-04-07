@@ -17,3 +17,4 @@ get the example data for the indicator example shiny
 get_indicator_example_data()
 }
 }
+\keyword{Internal}

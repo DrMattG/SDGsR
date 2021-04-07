@@ -3,7 +3,7 @@
 \docType{data}
 \name{lookup_country_codes}
 \alias{lookup_country_codes}
-\title{DATASET_TITLE}
+\title{Lookup country codes}
 \format{
 A data frame with 249 rows and 3 variables:
 \describe{
@@ -12,13 +12,11 @@ A data frame with 249 rows and 3 variables:
 \item{\code{iso_alpha3_code}}{character COLUMN_DESCRIPTION}
 }
 }
-\source{
-\url{http://somewhere.important.com/}
-}
 \usage{
 lookup_country_codes
 }
 \description{
-DATASET_DESCRIPTION
+A dataframe used to lookup
+country codes in the M49 and ISO_alpha3 format
 }
 \keyword{datasets}

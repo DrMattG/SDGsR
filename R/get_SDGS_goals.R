@@ -1,6 +1,7 @@
 #' get_SDGS_goals
 #' @description calls the UN SDGs API to get the Goals data
-#' @return writes an .RDS file to a "data" folder listing Goals, Targets and indicators
+#' @return writes an .RDS file to a "data"
+#' folder listing Goals, Targets and indicators
 #' @examples get_SDGs_goals()
 #' @import here jsonlite readr tidyverse
 #' @export
@@ -63,10 +64,15 @@ get_SDGs_goals<-function(){
   df17<-data.frame(datcall17$targets)
 
 
-  data<-dplyr::bind_rows(df1,df2,df3,df4,df5,df6,df7,df8,df9,df10,df11,df12,df13,df14,df15,df16,df17)
+  data<-dplyr::bind_rows(df1,df2,df3,
+                         df4,df5,df6,
+                         df7,df8,df9,
+                         df10,df11,df12,
+                         df13,df14,df15,
+                         df16,df17)
   data$goal<-stringi::stri_extract_first_regex(data$code, "[0-9]+")
   data$title<-NULL
-  path=paste0(here::here(),"SDGS_all.rds")
+  path<-paste0(here::here(),"SDGS_all.rds")
   readr::write_rds(data, path=path)
 
 }

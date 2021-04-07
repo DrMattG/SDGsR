@@ -6,8 +6,11 @@
 \usage{
 runExample(example)
 }
+\arguments{
+\item{example}{Can only be "indicator.R" at present}
+}
 \value{
-A shiny app
+A shiny app with plotly interactive map
 }
 \description{
 Run ShinyApp examples

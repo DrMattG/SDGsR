@@ -80,7 +80,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -104,7 +104,12 @@
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/DrMattG/SDGsR/">
+    <span class="fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
       </ul>
       
     </div><!--/.nav-collapse -->
@@ -119,7 +124,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>get_indicator</h1>
-    
+    <small class="dont-index">Source: <a href='https://github.com/DrMattG/SDGsR/blob/master/R/get_indicator.R'><code>R/get_indicator.R</code></a></small>
     <div class="hidden name"><code>get_indicator.Rd</code></div>
     </div>
 
@@ -127,7 +132,7 @@
     <p>get indicators for a specific country and indicator</p>
     </div>
 
-    <pre class="usage"><span class='fu'>get_indicator</span><span class='op'>(</span>Country <span class='op'>=</span> <span class='st'>"578"</span>, indicator <span class='op'>=</span> <span class='st'>"1.1.1"</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>get_indicator</span><span class='op'>(</span><span class='va'>Country</span>, <span class='va'>indicator</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -157,20 +162,23 @@
 #&gt; 6    15   15.6    15.6.1     ER_CBD_SMTA
 #&gt; 7    15   15.6    15.6.1     ER_CBD_SMTA
 #&gt; 8    15   15.6    15.6.1     ER_CBD_SMTA
-#&gt; 9    15   15.6    15.6.1   ER_CBD_NAGOYA
-#&gt; 10   15   15.6    15.6.1 ER_CBD_ABSCLRHS
-#&gt; 11   15   15.6    15.6.1 ER_CBD_ORSPGRFA
-#&gt; 12   15   15.6    15.6.1 ER_CBD_ORSPGRFA
+#&gt; 9    15   15.6    15.6.1     ER_CBD_SMTA
+#&gt; 10   15   15.6    15.6.1     ER_CBD_SMTA
+#&gt; 11   15   15.6    15.6.1   ER_CBD_NAGOYA
+#&gt; 12   15   15.6    15.6.1 ER_CBD_ABSCLRHS
 #&gt; 13   15   15.6    15.6.1 ER_CBD_ORSPGRFA
 #&gt; 14   15   15.6    15.6.1 ER_CBD_ORSPGRFA
-#&gt; 15   15   15.6    15.6.1 ER_CBD_PTYPGRFA
-#&gt; 16   15   15.6    15.6.1 ER_CBD_PTYPGRFA
-#&gt; 17   15   15.6    15.6.1 ER_CBD_PTYPGRFA
-#&gt; 18   15   15.6    15.6.1 ER_CBD_PTYPGRFA
+#&gt; 15   15   15.6    15.6.1 ER_CBD_ORSPGRFA
+#&gt; 16   15   15.6    15.6.1 ER_CBD_ORSPGRFA
+#&gt; 17   15   15.6    15.6.1 ER_CBD_ORSPGRFA
+#&gt; 18   15   15.6    15.6.1 ER_CBD_ORSPGRFA
 #&gt; 19   15   15.6    15.6.1 ER_CBD_PTYPGRFA
 #&gt; 20   15   15.6    15.6.1 ER_CBD_PTYPGRFA
 #&gt; 21   15   15.6    15.6.1 ER_CBD_PTYPGRFA
 #&gt; 22   15   15.6    15.6.1 ER_CBD_PTYPGRFA
+#&gt; 23   15   15.6    15.6.1 ER_CBD_PTYPGRFA
+#&gt; 24   15   15.6    15.6.1 ER_CBD_PTYPGRFA
+#&gt; 25   15   15.6    15.6.1 ER_CBD_PTYPGRFA
 #&gt;                                                                                                                                                                                                                                         seriesDescription
 #&gt; 1                                                                                            Total reported number of Standard Material Transfer Agreements (SMTAs) transferring plant genetic resources for food and agriculture to the country (number)
 #&gt; 2                                                                                            Total reported number of Standard Material Transfer Agreements (SMTAs) transferring plant genetic resources for food and agriculture to the country (number)
@@ -180,43 +188,49 @@
 #&gt; 6                                                                                            Total reported number of Standard Material Transfer Agreements (SMTAs) transferring plant genetic resources for food and agriculture to the country (number)
 #&gt; 7                                                                                            Total reported number of Standard Material Transfer Agreements (SMTAs) transferring plant genetic resources for food and agriculture to the country (number)
 #&gt; 8                                                                                            Total reported number of Standard Material Transfer Agreements (SMTAs) transferring plant genetic resources for food and agriculture to the country (number)
-#&gt; 9                                                                                                                                                                                     Countries that are parties to the Nagoya Protocol (1 = YES; 0 = NO)
-#&gt; 10                                                                                           Countries that have legislative, administrative and policy framework or measures reported to the Access and Benefit-Sharing Clearing-House (1 = YES; 0 = NO)
-#&gt; 11 Countries that have legislative, administrative and policy framework or measures reported through the Online Reporting System on Compliance  of the International Treaty on Plant Genetic Resources for Food and Agriculture (PGRFA) (1 = YES; 0 = NO)
-#&gt; 12 Countries that have legislative, administrative and policy framework or measures reported through the Online Reporting System on Compliance  of the International Treaty on Plant Genetic Resources for Food and Agriculture (PGRFA) (1 = YES; 0 = NO)
+#&gt; 9                                                                                            Total reported number of Standard Material Transfer Agreements (SMTAs) transferring plant genetic resources for food and agriculture to the country (number)
+#&gt; 10                                                                                           Total reported number of Standard Material Transfer Agreements (SMTAs) transferring plant genetic resources for food and agriculture to the country (number)
+#&gt; 11                                                                                                                                                                                    Countries that are parties to the Nagoya Protocol (1 = YES; 0 = NO)
+#&gt; 12                                                                                           Countries that have legislative, administrative and policy framework or measures reported to the Access and Benefit-Sharing Clearing-House (1 = YES; 0 = NO)
 #&gt; 13 Countries that have legislative, administrative and policy framework or measures reported through the Online Reporting System on Compliance  of the International Treaty on Plant Genetic Resources for Food and Agriculture (PGRFA) (1 = YES; 0 = NO)
 #&gt; 14 Countries that have legislative, administrative and policy framework or measures reported through the Online Reporting System on Compliance  of the International Treaty on Plant Genetic Resources for Food and Agriculture (PGRFA) (1 = YES; 0 = NO)
-#&gt; 15                                                                                                       Countries that are contracting Parties to the International Treaty on Plant Genetic Resources for Food and Agriculture (PGRFA) (1 = YES; 0 = NO)
-#&gt; 16                                                                                                       Countries that are contracting Parties to the International Treaty on Plant Genetic Resources for Food and Agriculture (PGRFA) (1 = YES; 0 = NO)
-#&gt; 17                                                                                                       Countries that are contracting Parties to the International Treaty on Plant Genetic Resources for Food and Agriculture (PGRFA) (1 = YES; 0 = NO)
-#&gt; 18                                                                                                       Countries that are contracting Parties to the International Treaty on Plant Genetic Resources for Food and Agriculture (PGRFA) (1 = YES; 0 = NO)
+#&gt; 15 Countries that have legislative, administrative and policy framework or measures reported through the Online Reporting System on Compliance  of the International Treaty on Plant Genetic Resources for Food and Agriculture (PGRFA) (1 = YES; 0 = NO)
+#&gt; 16 Countries that have legislative, administrative and policy framework or measures reported through the Online Reporting System on Compliance  of the International Treaty on Plant Genetic Resources for Food and Agriculture (PGRFA) (1 = YES; 0 = NO)
+#&gt; 17 Countries that have legislative, administrative and policy framework or measures reported through the Online Reporting System on Compliance  of the International Treaty on Plant Genetic Resources for Food and Agriculture (PGRFA) (1 = YES; 0 = NO)
+#&gt; 18 Countries that have legislative, administrative and policy framework or measures reported through the Online Reporting System on Compliance  of the International Treaty on Plant Genetic Resources for Food and Agriculture (PGRFA) (1 = YES; 0 = NO)
 #&gt; 19                                                                                                       Countries that are contracting Parties to the International Treaty on Plant Genetic Resources for Food and Agriculture (PGRFA) (1 = YES; 0 = NO)
 #&gt; 20                                                                                                       Countries that are contracting Parties to the International Treaty on Plant Genetic Resources for Food and Agriculture (PGRFA) (1 = YES; 0 = NO)
 #&gt; 21                                                                                                       Countries that are contracting Parties to the International Treaty on Plant Genetic Resources for Food and Agriculture (PGRFA) (1 = YES; 0 = NO)
 #&gt; 22                                                                                                       Countries that are contracting Parties to the International Treaty on Plant Genetic Resources for Food and Agriculture (PGRFA) (1 = YES; 0 = NO)
+#&gt; 23                                                                                                       Countries that are contracting Parties to the International Treaty on Plant Genetic Resources for Food and Agriculture (PGRFA) (1 = YES; 0 = NO)
+#&gt; 24                                                                                                       Countries that are contracting Parties to the International Treaty on Plant Genetic Resources for Food and Agriculture (PGRFA) (1 = YES; 0 = NO)
+#&gt; 25                                                                                                       Countries that are contracting Parties to the International Treaty on Plant Genetic Resources for Food and Agriculture (PGRFA) (1 = YES; 0 = NO)
 #&gt;    seriesCount geoAreaCode geoAreaName timePeriodStart value valueType
-#&gt; 1         2304          12     Algeria            2012   369     Float
-#&gt; 2         2304          12     Algeria            2013   406     Float
-#&gt; 3         2304          12     Algeria            2014   434     Float
-#&gt; 4         2304          12     Algeria            2015   630     Float
-#&gt; 5         2304          12     Algeria            2016   646     Float
-#&gt; 6         2304          12     Algeria            2017   657     Float
-#&gt; 7         2304          12     Algeria            2018   661     Float
-#&gt; 8         2304          12     Algeria            2019   661     Float
-#&gt; 9          257          12     Algeria            2012     0     Float
-#&gt; 10         257          12     Algeria            2012     1     Float
-#&gt; 11        1072          12     Algeria            2016     0     Float
-#&gt; 12        1072          12     Algeria            2017     0     Float
-#&gt; 13        1072          12     Algeria            2018     0     Float
-#&gt; 14        1072          12     Algeria            2019     0     Float
-#&gt; 15        2144          12     Algeria            2012     1     Float
-#&gt; 16        2144          12     Algeria            2013     1     Float
-#&gt; 17        2144          12     Algeria            2014     1     Float
-#&gt; 18        2144          12     Algeria            2015     1     Float
-#&gt; 19        2144          12     Algeria            2016     1     Float
-#&gt; 20        2144          12     Algeria            2017     1     Float
-#&gt; 21        2144          12     Algeria            2018     1     Float
-#&gt; 22        2144          12     Algeria            2019     1     Float
+#&gt; 1         2874          12     Algeria            2012   365     Float
+#&gt; 2         2874          12     Algeria            2013   425     Float
+#&gt; 3         2874          12     Algeria            2014   472     Float
+#&gt; 4         2874          12     Algeria            2015   516     Float
+#&gt; 5         2874          12     Algeria            2016   532     Float
+#&gt; 6         2874          12     Algeria            2017   543     Float
+#&gt; 7         2874          12     Algeria            2018   547     Float
+#&gt; 8         2874          12     Algeria            2019   553     Float
+#&gt; 9         2874          12     Algeria            2020   553     Float
+#&gt; 10        2874          12     Algeria            2021   553     Float
+#&gt; 11         277          12     Algeria            2012     0     Float
+#&gt; 12         277          12     Algeria            2012     1     Float
+#&gt; 13        1600          12     Algeria            2016     0     Float
+#&gt; 14        1600          12     Algeria            2017     0     Float
+#&gt; 15        1600          12     Algeria            2018     0     Float
+#&gt; 16        1600          12     Algeria            2019     0     Float
+#&gt; 17        1600          12     Algeria            2020     0     Float
+#&gt; 18        1600          12     Algeria            2021     0     Float
+#&gt; 19        2679          12     Algeria            2012     1     Float
+#&gt; 20        2679          12     Algeria            2013     1     Float
+#&gt; 21        2679          12     Algeria            2014     1     Float
+#&gt; 22        2679          12     Algeria            2015     1     Float
+#&gt; 23        2679          12     Algeria            2016     1     Float
+#&gt; 24        2679          12     Algeria            2017     1     Float
+#&gt; 25        2679          12     Algeria            2018     1     Float
 #&gt;    time_detail timeCoverage upperBound lowerBound basePeriod
 #&gt; 1           NA           NA         NA         NA         NA
 #&gt; 2           NA           NA         NA         NA         NA
@@ -240,6 +254,9 @@
 #&gt; 20          NA           NA         NA         NA         NA
 #&gt; 21          NA           NA         NA         NA         NA
 #&gt; 22          NA           NA         NA         NA         NA
+#&gt; 23          NA           NA         NA         NA         NA
+#&gt; 24          NA           NA         NA         NA         NA
+#&gt; 25          NA           NA         NA         NA         NA
 #&gt;                                                                                                                                                                                                                                                                                                                                                                               source
 #&gt; 1                                                                                                                                                                                                                                                                                                                                                               ITPGRFA Secretariat 
 #&gt; 2                                                                                                                                                                                                                                                                                                                                                               ITPGRFA Secretariat 
@@ -249,20 +266,23 @@
 #&gt; 6                                                                                                                                                                                                                                                                                                                                                               ITPGRFA Secretariat 
 #&gt; 7                                                                                                                                                                                                                                                                                                                                                               ITPGRFA Secretariat 
 #&gt; 8                                                                                                                                                                                                                                                                                                                                                               ITPGRFA Secretariat 
-#&gt; 9  https://www.cbd.int/abs/nagoya-protocol/signatories/default.shtml, Access and Benefit-sharing Clearing-house https://absch.cbd.int/, http://www.fao.org/plant-treaty/countries/membership/en/,  The Online Reporting System on Compliance of the International Treaty on PGRFA http://faoitpgrfa.ort-production.linode.unep-wcmc.org and  Easy-SMTA https://mls.planttreaty.org ,
-#&gt; 10                                                                                                                                                                                                                                                                                                                                                   https://absch.cbd.int/countries
-#&gt; 11                                                                                                                                                                                                                                                                                                                      Secretariat of the Convention on Biological Diversity (CBD) 
-#&gt; 12                                                                                                                                                                                                                                                                                                                      Secretariat of the Convention on Biological Diversity (CBD) 
+#&gt; 9                                                                                                                                                                                                                                                                                                                                                               ITPGRFA Secretariat 
+#&gt; 10                                                                                                                                                                                                                                                                                                                                                              ITPGRFA Secretariat 
+#&gt; 11 https://www.cbd.int/abs/nagoya-protocol/signatories/default.shtml, Access and Benefit-sharing Clearing-house https://absch.cbd.int/, http://www.fao.org/plant-treaty/countries/membership/en/,  The Online Reporting System on Compliance of the International Treaty on PGRFA http://faoitpgrfa.ort-production.linode.unep-wcmc.org and  Easy-SMTA https://mls.planttreaty.org ,
+#&gt; 12                                                                                                                                                                                                                                                                                                                                                   https://absch.cbd.int/countries
 #&gt; 13                                                                                                                                                                                                                                                                                                                      Secretariat of the Convention on Biological Diversity (CBD) 
 #&gt; 14                                                                                                                                                                                                                                                                                                                      Secretariat of the Convention on Biological Diversity (CBD) 
-#&gt; 15                                                                                                                                                                                                                                                                                                                                                              ITPGRFA Secretariat 
-#&gt; 16                                                                                                                                                                                                                                                                                                                                                              ITPGRFA Secretariat 
-#&gt; 17                                                                                                                                                                                                                                                                                                                                                              ITPGRFA Secretariat 
-#&gt; 18                                                                                                                                                                                                                                                                                                                                                              ITPGRFA Secretariat 
+#&gt; 15                                                                                                                                                                                                                                                                                                                      Secretariat of the Convention on Biological Diversity (CBD) 
+#&gt; 16                                                                                                                                                                                                                                                                                                                      Secretariat of the Convention on Biological Diversity (CBD) 
+#&gt; 17                                                                                                                                                                                                                                                                                                                      Secretariat of the Convention on Biological Diversity (CBD) 
+#&gt; 18                                                                                                                                                                                                                                                                                                                      Secretariat of the Convention on Biological Diversity (CBD) 
 #&gt; 19                                                                                                                                                                                                                                                                                                                                                              ITPGRFA Secretariat 
 #&gt; 20                                                                                                                                                                                                                                                                                                                                                              ITPGRFA Secretariat 
 #&gt; 21                                                                                                                                                                                                                                                                                                                                                              ITPGRFA Secretariat 
 #&gt; 22                                                                                                                                                                                                                                                                                                                                                              ITPGRFA Secretariat 
+#&gt; 23                                                                                                                                                                                                                                                                                                                                                              ITPGRFA Secretariat 
+#&gt; 24                                                                                                                                                                                                                                                                                                                                                              ITPGRFA Secretariat 
+#&gt; 25                                                                                                                                                                                                                                                                                                                                                              ITPGRFA Secretariat 
 #&gt;    geoInfoUrl
 #&gt; 1          NA
 #&gt; 2          NA
@@ -286,6 +306,9 @@
 #&gt; 20         NA
 #&gt; 21         NA
 #&gt; 22         NA
+#&gt; 23         NA
+#&gt; 24         NA
+#&gt; 25         NA
 #&gt;                                                                                                                                                                                                                                                                                                                                                      footnotes
 #&gt; 1                                                                                                                                                                                                                                                                                                                                            Cumulative value.
 #&gt; 2                                                                                                                                                                                                                                                                                                                                            Cumulative value.
@@ -295,10 +318,10 @@
 #&gt; 6                                                                                                                                                                                                                                                                                                                                            Cumulative value.
 #&gt; 7                                                                                                                                                                                                                                                                                                                                            Cumulative value.
 #&gt; 8                                                                                                                                                                                                                                                                                                                                            Cumulative value.
-#&gt; 9  Parties  refers to Parties to the Convention on Biological Diversity that have ratified, accepted, approved or acceded the Nagoya Protocol, including those for which the Protocol has not yet entered into force following the 90 days period set out in Article 33.2 of the Protocol. For values:  TRUE = 1.0; FALSE = 0.0. Data as per 15 February 2017.
-#&gt; 10                                                                                                                                                        ABS measures reported refers to legislative, administrative and policy framework or measures reported to the ABS Clearing-House. For values:  TRUE = 1.0; FALSE = 0.0. Data as per 15 February 2017.
-#&gt; 11                                                                                                                                                                                                                                                                                                                                                            
-#&gt; 12                                                                                                                                                                                                                                                                                                                                                            
+#&gt; 9                                                                                                                                                                                                                                                                                                                                            Cumulative value.
+#&gt; 10                                                                                                                                                                                                                                                                                                                                           Cumulative value.
+#&gt; 11 Parties  refers to Parties to the Convention on Biological Diversity that have ratified, accepted, approved or acceded the Nagoya Protocol, including those for which the Protocol has not yet entered into force following the 90 days period set out in Article 33.2 of the Protocol. For values:  TRUE = 1.0; FALSE = 0.0. Data as per 15 February 2017.
+#&gt; 12                                                                                                                                                        ABS measures reported refers to legislative, administrative and policy framework or measures reported to the ABS Clearing-House. For values:  TRUE = 1.0; FALSE = 0.0. Data as per 15 February 2017.
 #&gt; 13                                                                                                                                                                                                                                                                                                                                                            
 #&gt; 14                                                                                                                                                                                                                                                                                                                                                            
 #&gt; 15                                                                                                                                                                                                                                                                                                                                                            
@@ -309,29 +332,35 @@
 #&gt; 20                                                                                                                                                                                                                                                                                                                                                            
 #&gt; 21                                                                                                                                                                                                                                                                                                                                                            
 #&gt; 22                                                                                                                                                                                                                                                                                                                                                            
+#&gt; 23                                                                                                                                                                                                                                                                                                                                                            
+#&gt; 24                                                                                                                                                                                                                                                                                                                                                            
+#&gt; 25                                                                                                                                                                                                                                                                                                                                                            
 #&gt;    attributes.Nature attributes.Units Reporting Type
-#&gt; 1                 NA           NUMBER              G
-#&gt; 2                 NA           NUMBER              G
-#&gt; 3                 NA           NUMBER              G
-#&gt; 4                 NA           NUMBER              G
-#&gt; 5                 NA           NUMBER              G
-#&gt; 6                 NA           NUMBER              G
-#&gt; 7                 NA           NUMBER              G
-#&gt; 8                 NA           NUMBER              G
-#&gt; 9                 NA           NUMBER              G
-#&gt; 10                NA           NUMBER              G
-#&gt; 11                NA           NUMBER              G
-#&gt; 12                NA           NUMBER              G
-#&gt; 13                NA           NUMBER              G
-#&gt; 14                NA           NUMBER              G
-#&gt; 15                NA           NUMBER              G
-#&gt; 16                NA           NUMBER              G
-#&gt; 17                NA           NUMBER              G
-#&gt; 18                NA           NUMBER              G
-#&gt; 19                NA           NUMBER              G
-#&gt; 20                NA           NUMBER              G
-#&gt; 21                NA           NUMBER              G
-#&gt; 22                NA           NUMBER              G</div></pre>
+#&gt; 1                  C           NUMBER              G
+#&gt; 2                  C           NUMBER              G
+#&gt; 3                  C           NUMBER              G
+#&gt; 4                  C           NUMBER              G
+#&gt; 5                  C           NUMBER              G
+#&gt; 6                  C           NUMBER              G
+#&gt; 7                  C           NUMBER              G
+#&gt; 8                  C           NUMBER              G
+#&gt; 9                  C           NUMBER              G
+#&gt; 10                 C           NUMBER              G
+#&gt; 11                 C           NUMBER              G
+#&gt; 12                 C           NUMBER              G
+#&gt; 13                 C           NUMBER              G
+#&gt; 14                 C           NUMBER              G
+#&gt; 15                 C           NUMBER              G
+#&gt; 16                 C           NUMBER              G
+#&gt; 17                 C           NUMBER              G
+#&gt; 18                 C           NUMBER              G
+#&gt; 19                 C           NUMBER              G
+#&gt; 20                 C           NUMBER              G
+#&gt; 21                 C           NUMBER              G
+#&gt; 22                 C           NUMBER              G
+#&gt; 23                 C           NUMBER              G
+#&gt; 24                 C           NUMBER              G
+#&gt; 25                 C           NUMBER              G</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

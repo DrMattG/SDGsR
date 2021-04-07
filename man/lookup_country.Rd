@@ -9,7 +9,9 @@ lookup_country(code = "M49", country)
 \arguments{
 \item{code}{M49 or ISO3 alpha code}
 
-\item{country}{the name of country (use get_country_list to see the accepted names of countries)}
+\item{country}{the name of country
+(use get_country_list to see the
+accepted names of countries)}
 }
 \value{
 A M49 or ISO3 alphacode

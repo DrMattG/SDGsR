@@ -4,7 +4,7 @@
 \alias{get_indicator}
 \title{get_indicator}
 \usage{
-get_indicator(Country = "578", indicator = "1.1.1")
+get_indicator(Country, indicator)
 }
 \arguments{
 \item{Country}{the M49 code for the country you are interested in}

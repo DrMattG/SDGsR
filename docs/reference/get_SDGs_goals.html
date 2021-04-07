@@ -80,7 +80,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -104,7 +104,12 @@
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/DrMattG/SDGsR/">
+    <span class="fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
       </ul>
       
     </div><!--/.nav-collapse -->
@@ -119,7 +124,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>get_SDGS_goals</h1>
-    
+    <small class="dont-index">Source: <a href='https://github.com/DrMattG/SDGsR/blob/master/R/get_SDGS_goals.R'><code>R/get_SDGS_goals.R</code></a></small>
     <div class="hidden name"><code>get_SDGs_goals.Rd</code></div>
     </div>
 
@@ -132,11 +137,13 @@
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>writes an .RDS file to a "data" folder listing Goals, Targets and indicators</p>
+    <p>writes an .RDS file to a "data"
+folder listing Goals, Targets and indicators</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>get_SDGs_goals</span><span class='op'>(</span><span class='op'>)</span>
-</div></pre>
+</div><div class='output co'>#&gt; <span class='warning'>Warning: The `path` argument of `write_rds()` is deprecated as of readr 1.4.0.</span>
+#&gt; <span class='warning'>Please use the `file` argument instead.</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

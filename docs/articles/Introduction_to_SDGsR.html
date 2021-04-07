@@ -39,7 +39,7 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -62,7 +62,14 @@
   </ul>
 </li>
       </ul>
-<ul class="nav navbar-nav navbar-right"></ul>
+<ul class="nav navbar-nav navbar-right">
+<li>
+  <a href="https://github.com/DrMattG/SDGsR/">
+    <span class="fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
+      </ul>
 </div>
 <!--/.nav-collapse -->
   </div>
@@ -72,15 +79,15 @@
 
       
 
-      </header><div class="row">
+      </header><script src="Introduction_to_SDGsR_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Introduction to SDGsR - an interface to the UN Sustainablity Goals API</h1>
                         <h4 class="author">Matt Grainger</h4>
             
-            <h4 class="date">2020-12-08</h4>
+            <h4 class="date">2021-04-07</h4>
       
-      
+      <small class="dont-index">Source: <a href="https://github.com/DrMattG/SDGsR/blob/master/vignettes/Introduction_to_SDGsR.Rmd"><code>vignettes/Introduction_to_SDGsR.Rmd</code></a></small>
       <div class="hidden name"><code>Introduction_to_SDGsR.Rmd</code></div>
 
     </div>
@@ -99,7 +106,7 @@
 <p>Currently, there are five functions in the package which facilitate interaction with the SDGs API.</p>
 <p>To get the text of the Goals we can use the SDGsR::get_SDGs_goals() function. This gathers together all the Goals in to a single dataframe.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">SDGsR</span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://drmattg.github.io/SDGsR/">SDGsR</a></span><span class="op">)</span>
 <span class="va">Goals</span><span class="op">&lt;-</span><span class="fu"><a href="../reference/get_SDGs_goals.html">get_SDGs_goals</a></span><span class="op">(</span><span class="op">)</span>
 <span class="va">Goals</span> <span class="op">%&gt;%</span> <span class="fu">select</span><span class="op">(</span><span class="va">goal</span>, <span class="va">code</span>, <span class="va">description</span> <span class="op">)</span> <span class="op">%&gt;%</span> 
   <span class="fu">sample_n</span><span class="op">(</span><span class="va">.</span>,<span class="fl">3</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="co">#randomly select three rows to display</span>
@@ -130,24 +137,24 @@ Implement the principle of special and differential treatment for developing cou
 </tr>
 <tr>
 <td style="text-align:left;">
-16
+2
 </td>
 <td style="text-align:left;">
-16.4
+2.4
 </td>
 <td style="text-align:left;">
-By 2030, significantly reduce illicit financial and arms flows, strengthen the recovery and return of stolen assets and combat all forms of organized crime
+By 2030, ensure sustainable food production systems and implement resilient agricultural practices that increase productivity and production, that help maintain ecosystems, that strengthen capacity for adaptation to climate change, extreme weather, drought, flooding and other disasters and that progressively improve land and soil quality
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-12
+11
 </td>
 <td style="text-align:left;">
-12.1
+11.b
 </td>
 <td style="text-align:left;">
-Implement the 10-Year Framework of Programmes on Sustainable Consumption and Production Patterns, all countries taking action, with developed countries taking the lead, taking into account the development and capabilities of developing countries
+By 2020, substantially increase the number of cities and human settlements adopting and implementing integrated policies and plans towards inclusion, resource efficiency, mitigation and adaptation to climate change, resilience to disasters, and develop and implement, in line with the Sendai Framework for Disaster Risk Reduction 2015-2030, holistic disaster risk management at all levels
 </td>
 </tr>
 </tbody>

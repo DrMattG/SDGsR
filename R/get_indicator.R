@@ -6,8 +6,9 @@
 #' @examples get_indicator(Country="12", indicator="15.6.1")
 #' @export
 
-get_indicator=function(Country="578", indicator="1.1.1"){
-  url<-paste0("https://unstats.un.org/SDGAPI/v1/sdg/Indicator/Data?indicator=", indicator,"&areaCode=", Country)
+get_indicator<-function(Country, indicator){
+  url<-paste0("https://unstats.un.org/SDGAPI/v1/sdg/Indicator/Data?indicator=",
+              indicator,"&areaCode=", Country)
   datcall <- jsonlite::fromJSON(url)
   page<-as.data.frame(datcall$data)
   return(page)
@@ -21,7 +22,8 @@ get_indicator=function(Country="578", indicator="1.1.1"){
 #' @export
 
 get_indicator_data<-function(indicator='15.6.1'){
-  url<-paste0("https://unstats.un.org/SDGAPI/v1/sdg/Indicator/Data?indicator=",indicator,"&pageSize=10000")
+  url<-paste0("https://unstats.un.org/SDGAPI/v1/sdg/Indicator/Data?indicator=",
+              indicator,"&pageSize=10000")
   datcall <- jsonlite::fromJSON(url)
 
   indicator<-as.data.frame(datcall$data)
