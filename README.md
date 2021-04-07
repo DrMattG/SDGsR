@@ -54,45 +54,20 @@ description
 
 <td style="text-align:left;">
 
-5
+13
 
 </td>
 
 <td style="text-align:left;">
 
-5.5
+13.1
 
 </td>
 
 <td style="text-align:left;">
 
-Ensure women’s full and effective participation and equal opportunities
-for leadership at all levels of decision-making in political, economic
-and public life
-
-</td>
-
-</tr>
-
-<tr>
-
-<td style="text-align:left;">
-
-4
-
-</td>
-
-<td style="text-align:left;">
-
-4.1
-
-</td>
-
-<td style="text-align:left;">
-
-By 2030, ensure that all girls and boys complete free, equitable and
-quality primary and secondary education leading to relevant and
-effective learning outcomes
+Strengthen resilience and adaptive capacity to climate-related hazards
+and natural disasters in all countries
 
 </td>
 
@@ -102,22 +77,45 @@ effective learning outcomes
 
 <td style="text-align:left;">
 
-6
+13
 
 </td>
 
 <td style="text-align:left;">
 
-6.a
+13.b
 
 </td>
 
 <td style="text-align:left;">
 
-By 2030, expand international cooperation and capacity-building support
-to developing countries in water- and sanitation-related activities and
-programmes, including water harvesting, desalination, water efficiency,
-wastewater treatment, recycling and reuse technologies
+Promote mechanisms for raising capacity for effective climate
+change-related planning and management in least developed countries and
+small island developing States, including focusing on women, youth and
+local and marginalized communities
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:left;">
+
+11
+
+</td>
+
+<td style="text-align:left;">
+
+11.4
+
+</td>
+
+<td style="text-align:left;">
+
+Strengthen efforts to protect and safeguard the world’s cultural and
+natural heritage
 
 </td>
 
@@ -132,9 +130,6 @@ wastewater treatment, recycling and reuse technologies
 ``` r
 citation("SDGsR")
 ```
-
-    ## Warning in citation("SDGsR"): no date field in DESCRIPTION file of package
-    ## 'SDGsR'
 
     ## Warning in citation("SDGsR"): could not determine year for 'SDGsR' from package
     ## DESCRIPTION file

@@ -126,43 +126,42 @@ description
 <tbody>
 <tr>
 <td style="text-align:left;">
-9
-</td>
-<td style="text-align:left;">
-9.c
-</td>
-<td style="text-align:left;">
-Significantly increase access to information and communications technology and strive to provide universal and affordable access to the Internet in least developed countries by 2020
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-2
-</td>
-<td style="text-align:left;">
-2.1
-</td>
-<td style="text-align:left;">
-By 2030, end hunger and ensure access by all people, in particular the poor and people in vulnerable situations, including infants, to safe, nutritious and sufficient food all year round
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
 17
 </td>
 <td style="text-align:left;">
-17.4
+17.7
 </td>
 <td style="text-align:left;">
-Assist developing countries in attaining long-term debt sustainability through coordinated policies aimed at fostering debt financing, debt relief and debt restructuring, as appropriate, and address the external debt of highly indebted poor countries to reduce debt distress
+Promote the development, transfer, dissemination and diffusion of environmentally sound technologies to developing countries on favourable terms, including on concessional and preferential terms, as mutually agreed
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+4
+</td>
+<td style="text-align:left;">
+4.5
+</td>
+<td style="text-align:left;">
+By 2030, eliminate gender disparities in education and ensure equal access to all levels of education and vocational training for the vulnerable, including persons with disabilities, indigenous peoples and children in vulnerable situations
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+4
+</td>
+<td style="text-align:left;">
+4.4
+</td>
+<td style="text-align:left;">
+By 2030, substantially increase the number of youth and adults who have relevant skills, including technical and vocational skills, for employment, decent jobs and entrepreneurship
 </td>
 </tr>
 </tbody>
 </table>
-<p>The most useful function is the SDGsR::get_indicator() function that allows the user to query the data for a specific indicator in a specific country. First we need to make sure we know which is the correct code for the country and for the indicator as the API uses these to distinguish which data to export.</p>
+<p>The most useful function is the SDGsR::get_indicator() function that allows the user to query the data for a specific indicator in a specific country. First we need to make sure we know which is the correct code for the country and for the indicator as the API uses these to distinguish which data to export. There is an country list in the package that you can use to find the name of the country you are looking for.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R">
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fu"><a href="../reference/get_country_list.html">get_country_list</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fu"><a href="../reference/get_country_list.html">get_country_list</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt; [1] "Afghanistan"    "Åland Islands"  "Albania"        "Algeria"       </span>
 <span class="co">#&gt; [5] "American Samoa" "Andorra"</span></code></pre></div>
 <p>To find a specific indicator we need to know the right code to use. We can get a list of all the indicators by using SDGsR::get_indicator_list. I am interested in the indicators that are in Goal 15 Life on Land.</p>

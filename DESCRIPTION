@@ -1,6 +1,7 @@
 Package: SDGsR
 Title: Interface with the UN SDGs API to get data about the Sustainable Development Goals 
 Version: 0.0.0.9000
+Date: 2021-04-07
 URL: https://drmattg.github.io/SDGsR/
 BugReports: https://github.com/DrMattG/SDGsR/issues
 Authors@R: 
