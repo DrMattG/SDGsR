@@ -126,43 +126,42 @@ description
 <tbody>
 <tr>
 <td style="text-align:left;">
-5
+4
 </td>
 <td style="text-align:left;">
-5.5
+4.3
 </td>
 <td style="text-align:left;">
-Ensure women’s full and effective participation and equal opportunities for leadership at all levels of decision-making in political, economic and public life
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-17
-</td>
-<td style="text-align:left;">
-17.15
-</td>
-<td style="text-align:left;">
-Respect each country’s policy space and leadership to establish and implement policies for poverty eradication and sustainable development
+By 2030, ensure equal access for all women and men to affordable and quality technical, vocational and tertiary education, including university
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-11
+10
 </td>
 <td style="text-align:left;">
-11.b
+10.3
 </td>
 <td style="text-align:left;">
-By 2020, substantially increase the number of cities and human settlements adopting and implementing integrated policies and plans towards inclusion, resource efficiency, mitigation and adaptation to climate change, resilience to disasters, and develop and implement, in line with the Sendai Framework for Disaster Risk Reduction 2015-2030, holistic disaster risk management at all levels
+Ensure equal opportunity and reduce inequalities of outcome, including by eliminating discriminatory laws, policies and practices and promoting appropriate legislation, policies and action in this regard
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+1.1
+</td>
+<td style="text-align:left;">
+By 2030, eradicate extreme poverty for all people everywhere, currently measured as people living on less than $1.25 a day
 </td>
 </tr>
 </tbody>
 </table>
-<p>The most useful function is the SDGsR::get_indicator() function that allows the user to query the data for a specific indicator in a specific country. First we need to make sure we know which is the correct code for the country and for the indicator as the API uses these to distinguish which data to export.</p>
+<p>The most useful function is the SDGsR::get_indicator() function that allows the user to query the data for a specific indicator in a specific country. First we need to make sure we know which is the correct code for the country and for the indicator as the API uses these to distinguish which data to export. There is an country list in the package that you can use to find the name of the country you are looking for.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R">
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fu"><a href="../reference/get_country_list.html">get_country_list</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fu"><a href="../reference/get_country_list.html">get_country_list</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt; [1] "Afghanistan"    "Åland Islands"  "Albania"        "Algeria"       </span>
 <span class="co">#&gt; [5] "American Samoa" "Andorra"</span></code></pre></div>
 <p>To find a specific indicator we need to know the right code to use. We can get a list of all the indicators by using SDGsR::get_indicator_list. I am interested in the indicators that are in Goal 15 Life on Land.</p>
