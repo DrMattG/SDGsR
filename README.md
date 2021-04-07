@@ -54,45 +54,21 @@ description
 
 <td style="text-align:left;">
 
-13
+9
 
 </td>
 
 <td style="text-align:left;">
 
-13.1
+9.3
 
 </td>
 
 <td style="text-align:left;">
 
-Strengthen resilience and adaptive capacity to climate-related hazards
-and natural disasters in all countries
-
-</td>
-
-</tr>
-
-<tr>
-
-<td style="text-align:left;">
-
-13
-
-</td>
-
-<td style="text-align:left;">
-
-13.b
-
-</td>
-
-<td style="text-align:left;">
-
-Promote mechanisms for raising capacity for effective climate
-change-related planning and management in least developed countries and
-small island developing States, including focusing on women, youth and
-local and marginalized communities
+Increase the access of small-scale industrial and other enterprises, in
+particular in developing countries, to financial services, including
+affordable credit, and their integration into value chains and markets
 
 </td>
 
@@ -102,20 +78,46 @@ local and marginalized communities
 
 <td style="text-align:left;">
 
-11
+5
 
 </td>
 
 <td style="text-align:left;">
 
-11.4
+5.4
 
 </td>
 
 <td style="text-align:left;">
 
-Strengthen efforts to protect and safeguard the world’s cultural and
-natural heritage
+Recognize and value unpaid care and domestic work through the provision
+of public services, infrastructure and social protection policies and
+the promotion of shared responsibility within the household and the
+family as nationally appropriate
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:left;">
+
+6
+
+</td>
+
+<td style="text-align:left;">
+
+6.2
+
+</td>
+
+<td style="text-align:left;">
+
+By 2030, achieve access to adequate and equitable sanitation and hygiene
+for all and end open defecation, paying special attention to the needs
+of women and girls and those in vulnerable situations
 
 </td>
 
@@ -131,14 +133,11 @@ natural heritage
 citation("SDGsR")
 ```
 
-    ## Warning in citation("SDGsR"): could not determine year for 'SDGsR' from package
-    ## DESCRIPTION file
-
     ## 
     ## To cite package 'SDGsR' in publications use:
     ## 
-    ##   Matt Grainger (NA). SDGsR: Interface with the UN SDGs API to get data
-    ##   about the Sustainable Development Goals. R package version
+    ##   Matt Grainger (2021). SDGsR: Interface with the UN SDGs API to get
+    ##   data about the Sustainable Development Goals. R package version
     ##   0.0.0.9000. https://drmattg.github.io/SDGsR/
     ## 
     ## A BibTeX entry for LaTeX users is
@@ -146,6 +145,7 @@ citation("SDGsR")
     ##   @Manual{,
     ##     title = {SDGsR: Interface with the UN SDGs API to get data about the Sustainable Development Goals},
     ##     author = {Matt Grainger},
+    ##     year = {2021},
     ##     note = {R package version 0.0.0.9000},
     ##     url = {https://drmattg.github.io/SDGsR/},
     ##   }
