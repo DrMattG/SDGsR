@@ -62,7 +62,14 @@
   </ul>
 </li>
       </ul>
-<ul class="nav navbar-nav navbar-right"></ul>
+<ul class="nav navbar-nav navbar-right">
+<li>
+  <a href="https://github.com/DrMattG/SDGsR/">
+    <span class="fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
+      </ul>
 </div>
 <!--/.nav-collapse -->
   </div>
@@ -80,7 +87,7 @@
             
             <h4 class="date">2021-04-07</h4>
       
-      
+      <small class="dont-index">Source: <a href="https://github.com/DrMattG/SDGsR/blob/master/vignettes/Introduction_to_SDGsR.Rmd"><code>vignettes/Introduction_to_SDGsR.Rmd</code></a></small>
       <div class="hidden name"><code>Introduction_to_SDGsR.Rmd</code></div>
 
     </div>
@@ -99,7 +106,7 @@
 <p>Currently, there are five functions in the package which facilitate interaction with the SDGs API.</p>
 <p>To get the text of the Goals we can use the SDGsR::get_SDGs_goals() function. This gathers together all the Goals in to a single dataframe.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">SDGsR</span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://drmattg.github.io/SDGsR/">SDGsR</a></span><span class="op">)</span>
 <span class="va">Goals</span><span class="op">&lt;-</span><span class="fu"><a href="../reference/get_SDGs_goals.html">get_SDGs_goals</a></span><span class="op">(</span><span class="op">)</span>
 <span class="va">Goals</span> <span class="op">%&gt;%</span> <span class="fu">select</span><span class="op">(</span><span class="va">goal</span>, <span class="va">code</span>, <span class="va">description</span> <span class="op">)</span> <span class="op">%&gt;%</span> 
   <span class="fu">sample_n</span><span class="op">(</span><span class="va">.</span>,<span class="fl">3</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="co">#randomly select three rows to display</span>
@@ -119,24 +126,13 @@ description
 <tbody>
 <tr>
 <td style="text-align:left;">
-8
-</td>
-<td style="text-align:left;">
-8.b
-</td>
-<td style="text-align:left;">
-By 2020, develop and operationalize a global strategy for youth employment and implement the Global Jobs Pact of the International Labour Organization
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
 5
 </td>
 <td style="text-align:left;">
-5.4
+5.5
 </td>
 <td style="text-align:left;">
-Recognize and value unpaid care and domestic work through the provision of public services, infrastructure and social protection policies and the promotion of shared responsibility within the household and the family as nationally appropriate
+Ensure women’s full and effective participation and equal opportunities for leadership at all levels of decision-making in political, economic and public life
 </td>
 </tr>
 <tr>
@@ -144,10 +140,21 @@ Recognize and value unpaid care and domestic work through the provision of publi
 17
 </td>
 <td style="text-align:left;">
-17.19
+17.15
 </td>
 <td style="text-align:left;">
-By 2030, build on existing initiatives to develop measurements of progress on sustainable development that complement gross domestic product, and support statistical capacity-building in developing countries
+Respect each country’s policy space and leadership to establish and implement policies for poverty eradication and sustainable development
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+11
+</td>
+<td style="text-align:left;">
+11.b
+</td>
+<td style="text-align:left;">
+By 2020, substantially increase the number of cities and human settlements adopting and implementing integrated policies and plans towards inclusion, resource efficiency, mitigation and adaptation to climate change, resilience to disasters, and develop and implement, in line with the Sendai Framework for Disaster Risk Reduction 2015-2030, holistic disaster risk management at all levels
 </td>
 </tr>
 </tbody>
