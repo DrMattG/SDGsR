@@ -39,12 +39,10 @@ Goals %>% select(goal, code, description ) %>%
 ```
 
 
-The most useful function is the SDGsR::get_indicator() function that allows the user to query the data for a specific indicator in a specific country. First we need to make sure we know which is the correct code for the country and for the indicator as the API uses these to distinguish which data to export. 
+The most useful function is the SDGsR::get_indicator() function that allows the user to query the data for a specific indicator in a specific country. First we need to make sure we know which is the correct code for the country and for the indicator as the API uses these to distinguish which data to export. There is an country list in the package that you can use to find the name of the country you are looking for.  
 
 ```{r, echo=TRUE}
-
 head(get_country_list())
-
 ```
 
 To find a specific indicator we need to know the right code to use. We can get a list of all the indicators by using SDGsR::get_indicator_list. I am interested in the indicators that are in Goal 15 Life on Land. 
