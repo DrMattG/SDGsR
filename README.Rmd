@@ -1,0 +1,21 @@
+---
+title: "SDGsR"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+An R package for interacting with the UN Sustainable Development Goals API (https://unstats.un.org/SDGAPI/swagger/), inspired by https://rpubs.com/angelamhkim/sdgapi. 
+
+To install this package please use:
+
+devtools::install_github("DrMattG/SDGsR", dependencies = TRUE)
+
+## Citation
+
+```{r}
+citation("SDGsR")
+```
+

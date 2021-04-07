@@ -5,7 +5,7 @@ shinyApp(
                 choices = unique(mapp_data$Indicator)),
     selectInput("Seri", "Series:", choices=(unique(mapp_data$seriesDescription))),
     selectInput("Yr", "Year:", choices=(unique(mapp_data$timePeriodStart))),
-    plotlyOutput("Plot1")
+    plotly::plotlyOutput("Plot1")
   ),
 
   server = function(input, output,session) {
@@ -27,8 +27,8 @@ shinyApp(
     data3=reactive({
       filter(data2(),timePeriodStart==input$Yr)
     })
-    output$Plot1 = renderPlotly({
-      plot_geo(data3()) %>% add_trace(
+    output$Plot1 = plotly::renderPlotly({
+      plotly::plot_geo(data3()) %>% plotly::add_trace(
         z = ~value, color = ~value, colors = 'Oranges',
         text = ~geoAreaName, locations = ~iso_alpha3_code)
 
