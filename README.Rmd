@@ -13,6 +13,17 @@ To install this package please use:
 
 devtools::install_github("DrMattG/SDGsR", dependencies = TRUE)
 
+## Example
+```{r, message=FALSE, warning=FALSE}
+library(SDGsR)
+require(tidyverse)
+Goals<-get_SDGs_goals()
+Goals %>% select(goal, code, description ) %>% 
+  sample_n(.,3) %>% #randomly select three rows to display
+  kableExtra::kable()
+```
+
+
 ## Citation
 
 ```{r}
