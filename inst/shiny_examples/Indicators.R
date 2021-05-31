@@ -1,5 +1,7 @@
 mapp_data<-get_indicator_example_data()
+library(tidyverse)
 shinyApp(
+
   ui <- fluidPage(
     selectInput("Indi", "Indicator:",
                 choices = unique(mapp_data$Indicator)),

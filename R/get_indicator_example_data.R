@@ -1,6 +1,7 @@
 #' get_indicator_example_data
 #' @description get the example data for the indicator example shiny
 #' @return tibble of indicator data
+#' @import dplyr
 #' @examples
 #' \dontrun{
 #' get_indicator_example_data()
@@ -9,6 +10,7 @@
 #' @export
 
 get_indicator_example_data<-function(){
+  library(tidyverse)
 
 Ind_15.6.1<-get_indicator_data(indicator = '15.6.1')
 Ind_15.9.1<-get_indicator_data(indicator = '15.9.1')
@@ -45,7 +47,7 @@ mapp_data<-mapp_data %>%
          seriesDescription,
          Indicator,
          timePeriodStart) %>%
-  dplyr::drop_na(iso_alpha3_code) %>%
-  dplyr::drop_na(Indicator)
+  tidyr::drop_na(iso_alpha3_code) %>%
+  tidyr::drop_na(Indicator)
 return(mapp_data)
 }

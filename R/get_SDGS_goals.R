@@ -72,7 +72,6 @@ get_SDGs_goals<-function(){
                          df16,df17)
   data$goal<-stringi::stri_extract_first_regex(data$code, "[0-9]+")
   data$title<-NULL
-  path<-paste0(here::here(),"SDGS_all.rds")
-  readr::write_rds(data, path=path)
+   readr::write_rds(data,"SDGS_all.rds")
 
 }
