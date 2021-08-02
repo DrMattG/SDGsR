@@ -54,6 +54,9 @@
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
+      <a href="articles/Circular_Frequency_plot.html">Circular_Frequency_plot</a>
+    </li>
+    <li>
       <a href="articles/Introduction_to_SDGsR.html">Introduction to SDGsR - an interface to the UN Sustainablity Goals API</a>
     </li>
     <li>
@@ -92,7 +95,7 @@
 <a href="#example" class="anchor"></a>Example</h2>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://drmattg.github.io/SDGsR/">SDGsR</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">require</a></span><span class="op">(</span><span class="va"><a href="http://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">require</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
 <span class="va">Goals</span><span class="op">&lt;-</span><span class="fu"><a href="reference/get_SDGs_goals.html">get_SDGs_goals</a></span><span class="op">(</span><span class="op">)</span>
 <span class="va">Goals</span> <span class="op">%&gt;%</span> <span class="fu">select</span><span class="op">(</span><span class="va">goal</span>, <span class="va">code</span>, <span class="va">description</span> <span class="op">)</span> <span class="op">%&gt;%</span> 
   <span class="fu">sample_n</span><span class="op">(</span><span class="va">.</span>,<span class="fl">3</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="co">#randomly select three rows to display</span>

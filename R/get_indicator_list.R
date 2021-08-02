@@ -5,14 +5,15 @@
 #' @export
 
 
-get_indicator_list<-function(){
-url<-c("https://unstats.un.org/SDGAPI/v1/sdg/Indicator/List")
-datcall <- jsonlite::fromJSON(url)
+get_indicator_list <- function() {
+  url <- c("https://unstats.un.org/SDGAPI/v1/sdg/Indicator/List")
+  datcall <- jsonlite::fromJSON(url)
 
-indicators<-data.frame(goal=datcall$goal,
-                      target=datcall$target,
-                      code=datcall$code,
-                      description=datcall$description)
-return(indicators)
+  indicators <- data.frame(
+    goal = datcall$goal,
+    target = datcall$target,
+    code = datcall$code,
+    description = datcall$description
+  )
+  return(indicators)
 }
-

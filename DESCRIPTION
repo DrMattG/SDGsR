@@ -20,7 +20,8 @@ Imports:
     tidyverse,
     jsonlite,
     here,
-    readr
+    readr,
+    dplyr
 Suggests:
     knitr,
     rmarkdown,
@@ -28,7 +29,6 @@ Suggests:
     kableExtra,
     shiny,
     plotly,
-    dplyr,
     stringi
 VignetteBuilder: 
     knitr
