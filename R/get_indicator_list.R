@@ -1,7 +1,8 @@
-#' get_indicator_list
+#' Get a list of indicators of each Goal (and target)
 #' @description get a list of the indicators for each goal and target
 #' @return A dataframe of indicators and the description
-#' @examples get_indicator_list()
+#' @examples require(SDGsR)
+#' get_indicator_list()
 #' @export
 
 

@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_indicator_example_data.R
 \name{get_indicator_example_data}
 \alias{get_indicator_example_data}
-\title{get_indicator_example_data}
+\title{Get and example of indicator data for 15.6.1, 15.9.1 and 15.a.1}
 \usage{
 get_indicator_example_data()
 }
@@ -14,6 +14,7 @@ get the example data for the indicator example shiny
 }
 \examples{
 \dontrun{
+require(SDGsR)
 get_indicator_example_data()
 }
 }

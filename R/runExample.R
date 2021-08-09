@@ -1,10 +1,11 @@
-#' runExample
+#' Run the Shiny example
 #' @description Run ShinyApp examples
 #' @param example Can only be "indicator.R" at present
 #' @return A shiny app with plotly interactive map
 #' @export
-runExample <- function(example) {
-  # locate all the shiny app examples that exist
+runExample <- function(example = "indicator.R") {
+  requireNamespace("shiny")
+   # locate all the shiny app examples that exist
   validExamples <- list.files(system.file("shiny_examples", package = "SDGsR"))
 
   validExamplesMsg <-

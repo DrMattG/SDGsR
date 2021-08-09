@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_indicator.R
 \name{get_indicator}
 \alias{get_indicator}
-\title{get_indicator}
+\title{Get SDGS indicators and values for a specific country}
 \usage{
 get_indicator(Country, indicator)
 }
@@ -18,5 +18,6 @@ dataframe of indicator and values
 get indicators for a specific country and indicator
 }
 \examples{
+require(SDGsR)
 get_indicator(Country="12", indicator="15.6.1")
 }

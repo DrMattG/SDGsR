@@ -2,14 +2,14 @@
 % Please edit documentation in R/get_country_codes.R
 \name{lookup_country}
 \alias{lookup_country}
-\title{lookup_country_codes}
+\title{Lookup the country code}
 \usage{
-lookup_country(code = "M49", country)
+lookup_country(country, code = "M49")
 }
 \arguments{
-\item{code}{M49 or ISO3 alpha code}
+\item{country}{the name of country}
 
-\item{country}{the name of country
+\item{code}{M49 or ISO3 alpha code
 (use get_country_list to see the
 accepted names of countries)}
 }

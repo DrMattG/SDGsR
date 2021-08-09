@@ -1,7 +1,7 @@
-#' get_SDGS_goals_titles
+#' Get the titles of the SDGS goals
 #' @description calls the UN SDGs API to get the titles for each Goal
 #' @return dataframe of goal titles
-#' @import here jsonlite readr tidyverse
+#' @import here jsonlite readr
 #' @export
 
 get_SDGs_goals_titles<-function(){

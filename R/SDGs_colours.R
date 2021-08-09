@@ -1,15 +1,14 @@
-#' SDGS colour pallette
+#' Get the SDGS colour pallette
 #' @description get the SDGS colour for each Goal
+#' @param ... arguments for passing to other functions
 #' @return hex colour for each Goal
 #' @examples
-#' library(SDGsR)
-#' library(tidyverse)
-#' Norway <- get_indicator(Country = "578", indicator = "15.4.1")
+#' Norway <- SDGsR::get_indicator(Country = "578", indicator = "15.4.1")
 #' Norway %>%
-#'   select(timePeriodStart, value, seriesDescription) %>%
-#'   ggplot(aes(timePeriodStart, value)) +
-#'   geom_point(colour = SDGs_cols("Goal15")) +
-#'   ggtitle(label = paste0(Norway$seriesDescription[1]))
+#'   dplyr::select(timePeriodStart, value, seriesDescription) %>%
+#'   ggplot2::ggplot(aes(timePeriodStart, value)) +
+#'   ggplot2::geom_point(colour = SDGs_cols("Goal15")) +
+#'   ggplot2::ggtitle(label = paste0(Norway$seriesDescription[1]))
 #' @export
 SDGs_cols <- function(...) {
   SDGs_colours <- c(

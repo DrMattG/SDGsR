@@ -1,7 +1,8 @@
-#' get_country_list
+#' Get a list of the countries that can be queried
 #' @description get a list of the country codes that you can query from the API
 #' @return A list of country codes
-#' @examples cnts<-get_country_list()[228]
+#' @examples require(SDGsR)
+#' cnts<-get_country_list()[228]
 #' @export
 
 
@@ -10,10 +11,10 @@ get_country_list<-function(){
   return(unique(lookup_country_codes$country_or_area))
 }
 
-#' lookup_country_codes
+#' Lookup the country code
 #' @description Lookup a country code for a country
-#' @param code M49 or ISO3 alpha code
 #' @param country the name of country
+#' @param code M49 or ISO3 alpha code
 #' (use get_country_list to see the
 #' accepted names of countries)
 #' @return A M49 or ISO3 alphacode
@@ -21,7 +22,7 @@ get_country_list<-function(){
 #' @export
 
 
-lookup_country<-function(code="M49", country){
+lookup_country<-function(country,code="M49"){
   data("lookup_country_codes")
   code<-ifelse(code == 'M49',
                lookup_country_codes[which(

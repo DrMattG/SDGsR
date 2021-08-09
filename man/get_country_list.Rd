@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_country_codes.R
 \name{get_country_list}
 \alias{get_country_list}
-\title{get_country_list}
+\title{Get a list of the countries that can be queried}
 \usage{
 get_country_list()
 }
@@ -13,5 +13,6 @@ A list of country codes
 get a list of the country codes that you can query from the API
 }
 \examples{
+require(SDGsR)
 cnts<-get_country_list()[228]
 }

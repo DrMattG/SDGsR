@@ -2,9 +2,9 @@
 % Please edit documentation in R/runExample.R
 \name{runExample}
 \alias{runExample}
-\title{runExample}
+\title{Run the Shiny example}
 \usage{
-runExample(example)
+runExample(example = "indicator.R")
 }
 \arguments{
 \item{example}{Can only be "indicator.R" at present}

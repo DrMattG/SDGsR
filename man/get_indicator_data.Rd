@@ -2,9 +2,9 @@
 % Please edit documentation in R/get_indicator.R
 \name{get_indicator_data}
 \alias{get_indicator_data}
-\title{get_indicator_data}
+\title{Get data for a specific indicator}
 \usage{
-get_indicator_data(indicator = "15.6.1")
+get_indicator_data(indicator)
 }
 \arguments{
 \item{indicator}{the code for the indicator you are interested in}

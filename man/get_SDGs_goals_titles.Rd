@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_SDGS_goals_titles.R
 \name{get_SDGs_goals_titles}
 \alias{get_SDGs_goals_titles}
-\title{get_SDGS_goals_titles}
+\title{Get the titles of the SDGS goals}
 \usage{
 get_SDGs_goals_titles()
 }

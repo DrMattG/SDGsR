@@ -1,16 +1,16 @@
-#' get_indicator_example_data
+#' Get and example of indicator data for 15.6.1, 15.9.1 and 15.a.1
 #' @description get the example data for the indicator example shiny
 #' @return tibble of indicator data
 #' @import dplyr
 #' @examples
 #' \dontrun{
+#' require(SDGsR)
 #' get_indicator_example_data()
 #' }
 #' @keywords Internal
 #' @export
 
 get_indicator_example_data<-function(){
-  library(tidyverse)
 
 Ind_15.6.1<-get_indicator_data(indicator = '15.6.1')
 Ind_15.9.1<-get_indicator_data(indicator = '15.9.1')

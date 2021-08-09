@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_indicator_list.R
 \name{get_indicator_list}
 \alias{get_indicator_list}
-\title{get_indicator_list}
+\title{Get a list of indicators of each Goal (and target)}
 \usage{
 get_indicator_list()
 }
@@ -13,5 +13,6 @@ A dataframe of indicators and the description
 get a list of the indicators for each goal and target
 }
 \examples{
+require(SDGsR)
 get_indicator_list()
 }

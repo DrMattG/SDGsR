@@ -88,7 +88,7 @@
       <h1 data-toc-skip>Introduction to SDGsR - an interface to the UN Sustainablity Goals API</h1>
                         <h4 class="author">Matt Grainger</h4>
             
-            <h4 class="date">2021-08-02</h4>
+            <h4 class="date">2021-08-09</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/DrMattG/SDGsR/blob/master/vignettes/Introduction_to_SDGsR.Rmd"><code>vignettes/Introduction_to_SDGsR.Rmd</code></a></small>
       <div class="hidden name"><code>Introduction_to_SDGsR.Rmd</code></div>
@@ -97,7 +97,7 @@
 
     
     
-<p>Here is a basic runthrough of the {SDGsR} workflow. The package interfaces with UN SDGs API (see <a href="https://unstats.un.org/SDGAPI/swagger/" class="uri">https://unstats.un.org/SDGAPI/swagger/</a>) and allows the user to get the text of the 17 Goals, each associated Target and Indicators. This post: <a href="https://rpubs.com/angelamhkim/sdgapi" class="uri">https://rpubs.com/angelamhkim/sdgapi</a> was the inspiration for this package. Using the SDGsR::get_indicator() function one can get the indicator data for a specific country and indicator.</p>
+<p>Here is a basic run-through of the {SDGsR} workflow. The package interfaces with UN SDGs API (see <a href="https://unstats.un.org/SDGAPI/swagger/" class="uri">https://unstats.un.org/SDGAPI/swagger/</a>) and allows the user to get the text of the 17 Goals, each associated Target and Indicators. This post: <a href="https://rpubs.com/angelamhkim/sdgapi" class="uri">https://rpubs.com/angelamhkim/sdgapi</a> was the inspiration for this package. Using the SDGsR::get_indicator() function one can get the indicator data for a specific country and indicator.</p>
 <div id="what-are-the-sdgs" class="section level2">
 <h2 class="hasAnchor">
 <a href="#what-are-the-sdgs" class="anchor"></a>What are the SDGs?</h2>
@@ -129,13 +129,24 @@ description
 <tbody>
 <tr>
 <td style="text-align:left;">
-17
+5
 </td>
 <td style="text-align:left;">
-17.10
+5.2
 </td>
 <td style="text-align:left;">
-Promote a universal, rules-based, open, non-discriminatory and equitable multilateral trading system under the World Trade Organization, including through the conclusion of negotiations under its Doha Development Agenda
+Eliminate all forms of violence against all women and girls in the public and private spheres, including trafficking and sexual and other types of exploitation
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+4
+</td>
+<td style="text-align:left;">
+4.6
+</td>
+<td style="text-align:left;">
+By 2030, ensure that all youth and a substantial proportion of adults, both men and women, achieve literacy and numeracy
 </td>
 </tr>
 <tr>
@@ -143,21 +154,10 @@ Promote a universal, rules-based, open, non-discriminatory and equitable multila
 17
 </td>
 <td style="text-align:left;">
-17.8
+17.7
 </td>
 <td style="text-align:left;">
-Fully operationalize the technology bank and science, technology and innovation capacity-building mechanism for least developed countries by 2017 and enhance the use of enabling technology, in particular information and communications technology
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-8
-</td>
-<td style="text-align:left;">
-8.5
-</td>
-<td style="text-align:left;">
-By 2030, achieve full and productive employment and decent work for all women and men, including for young people and persons with disabilities, and equal pay for work of equal value
+Promote the development, transfer, dissemination and diffusion of environmentally sound technologies to developing countries on favourable terms, including on concessional and preferential terms, as mutually agreed
 </td>
 </tr>
 </tbody>

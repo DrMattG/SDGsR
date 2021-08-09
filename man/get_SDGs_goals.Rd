@@ -2,13 +2,15 @@
 % Please edit documentation in R/get_SDGS_goals.R
 \name{get_SDGs_goals}
 \alias{get_SDGs_goals}
-\title{get_SDGS_goals}
+\title{Get the SDGs Goals, Targets and indicators as a dataframe}
 \usage{
-get_SDGs_goals()
+get_SDGs_goals(pathtosave = NULL)
+}
+\arguments{
+\item{pathtosave}{An optional path to save the data as an RDS}
 }
 \value{
-writes an .RDS file to a "data"
-folder listing Goals, Targets and indicators
+dataframe listing Goals, Targets and indicators
 }
 \description{
 calls the UN SDGs API to get the Goals data

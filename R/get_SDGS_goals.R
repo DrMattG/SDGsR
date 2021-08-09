@@ -1,13 +1,13 @@
-#' get_SDGS_goals
+#' Get the SDGs Goals, Targets and indicators as a dataframe
 #' @description calls the UN SDGs API to get the Goals data
-#' @return writes an .RDS file to a "data"
-#' folder listing Goals, Targets and indicators
+#' @param pathtosave An optional path to save the data as an RDS
+#' @return dataframe listing Goals, Targets and indicators
 #' @examples get_SDGs_goals()
-#' @import here jsonlite readr tidyverse
+#' @import here jsonlite readr
 #' @export
 #'
 
-get_SDGs_goals<-function(){
+get_SDGs_goals<-function(pathtosave=NULL){
   #all goals
   url1<-c("https://unstats.un.org/SDGAPI/v1/sdg/Goal/1/Target/List?includechildren=true")
   url2<-c("https://unstats.un.org/SDGAPI/v1/sdg/Goal/2/Target/List?includechildren=true")
@@ -72,6 +72,11 @@ get_SDGs_goals<-function(){
                          df16,df17)
   data$goal<-stringi::stri_extract_first_regex(data$code, "[0-9]+")
   data$title<-NULL
-   readr::write_rds(data,"SDGS_all.rds")
 
+  if(is.null(pathtosave)){
+   return(data)
+  }else{
+    readr::write_rds(data,paste0(pathtosave,"/","SDGS_all.rds"))
+    print(paste0("'SDGS_all.rds' saved to ", pathtosave))
+  }
 }
