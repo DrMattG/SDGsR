@@ -11,7 +11,7 @@ get_country_list<-function(){
   return(unique(lookup_country_codes$country_or_area))
 }
 
-#' Lookup the country code
+#' Look up a country code
 #' @description Lookup a country code for a country
 #' @param country the name of country
 #' @param code M49 or ISO3 alpha code
