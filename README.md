@@ -7,7 +7,9 @@ API (<https://unstats.un.org/SDGAPI/swagger/>), inspired by
 
 To install this package please use:
 
-devtools::install\_github(“DrMattG/SDGsR”, dependencies = TRUE)
+```
+devtools::install\_github("DrMattG/SDGsR", dependencies = TRUE)
+```
 
 ## Example
 
