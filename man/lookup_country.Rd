@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_country_codes.R
 \name{lookup_country}
 \alias{lookup_country}
-\title{Lookup the country code}
+\title{Look up a country code}
 \usage{
 lookup_country(country, code = "M49")
 }
