@@ -1,45 +1,85 @@
-#' Get the SDGs Goals, Targets, and indicators as a dataframe using SDG API v5
+#' Get the SDGs Goals, Targets and indicators as a dataframe
 #' @description calls the UN SDGs API to get the Goals data
 #' @param pathtosave An optional path to save the data as an RDS
-#' @return dataframe listing Goals, Targets, and indicators
+#' @return dataframe listing Goals, Targets and indicators
 #' @examples get_SDGs_goals()
 #' @import here jsonlite readr
 #' @export
 #'
 
-get_SDGs_goals <- function(pathtosave = NULL) {
-  urls <- c(
-    "https://unstats.un.org/sdgs/UNSDGAPIV5/swagger/v1/swagger.json"
-  )
+get_SDGs_goals<-function(pathtosave=NULL){
+  #all goals
+  url1<-c("https://unstats.un.org/sdgs/UNSDGAPIV5/v1/sdg/Goal/1/Target/List?includechildren=true")
+  url2<-c("https://unstats.un.org/sdgs/UNSDGAPIV5/v1/sdg/Goal/2/Target/List?includechildren=true")
+  url3<-c("https://unstats.un.org/sdgs/UNSDGAPIV5/v1/sdg/Goal/3/Target/List?includechildren=true")
+  url4<-c("https://unstats.un.org/sdgs/UNSDGAPIV5/v1/sdg/Goal/4/Target/List?includechildren=true")
+  url5<-c("https://unstats.un.org/sdgs/UNSDGAPIV5/v1/sdg/Goal/5/Target/List?includechildren=true")
+  url6<-c("https://unstats.un.org/sdgs/UNSDGAPIV5/v1/sdg/Goal/6/Target/List?includechildren=true")
+  url7<-c("https://unstats.un.org/sdgs/UNSDGAPIV5/v1/sdg/Goal/7/Target/List?includechildren=true")
+  url8<-c("https://unstats.un.org/sdgs/UNSDGAPIV5/v1/sdg/Goal/8/Target/List?includechildren=true")
+  url9<-c("https://unstats.un.org/sdgs/UNSDGAPIV5/v1/sdg/Goal/9/Target/List?includechildren=true")
+  url10<-c("https://unstats.un.org/sdgs/UNSDGAPIV5/v1/sdg/Goal/10/Target/List?includechildren=true")
+  url11<-c("https://unstats.un.org/sdgs/UNSDGAPIV5/v1/sdg/Goal/11/Target/List?includechildren=true")
+  url12<-c("https://unstats.un.org/sdgs/UNSDGAPIV5/v1/sdg/Goal/12/Target/List?includechildren=true")
+  url13<-c("https://unstats.un.org/sdgs/UNSDGAPIV5/v1/sdg/Goal/13/Target/List?includechildren=true")
+  url14<-c("https://unstats.un.org/sdgs/UNSDGAPIV5/v1/sdg/Goal/14/Target/List?includechildren=true")
+  url15<-c("https://unstats.un.org/sdgs/UNSDGAPIV5/v1/sdg/Goal/15/Target/List?includechildren=true")
+  url16<-c("https://unstats.un.org/sdgs/UNSDGAPIV5/v1/sdg/Goal/16/Target/List?includechildren=true")
+  url17<-c("https://unstats.un.org/sdgs/UNSDGAPIV5/v1/sdg/Goal/17/Target/List?includechildren=true")
 
-  # Read the Swagger documentation to find the endpoints for Goals, Targets, and Indicators
-  swagger_doc <- jsonlite::fromJSON(urls[1])
-  goal_endpoint <- swagger_doc$paths$`/v1/sdg/Goal`$get$parameters[[2]]$schema$items$enum[1]
-  target_endpoint <- swagger_doc$paths$`/v1/sdg/Goal/{id}/Target/List`$get$parameters[[1]]$schema$items$enum[1]
+  datcall1 <- jsonlite::fromJSON(url1)
+  datcall2 <- jsonlite::fromJSON(url2)
+  datcall3 <- jsonlite::fromJSON(url3)
+  datcall4 <- jsonlite::fromJSON(url4)
+  datcall5 <- jsonlite::fromJSON(url5)
+  datcall6 <- jsonlite::fromJSON(url6)
+  datcall7 <- jsonlite::fromJSON(url7)
+  datcall8 <- jsonlite::fromJSON(url8)
+  datcall9 <- jsonlite::fromJSON(url9)
+  datcall10 <- jsonlite::fromJSON(url10)
+  datcall11 <- jsonlite::fromJSON(url11)
+  datcall12 <- jsonlite::fromJSON(url12)
+  datcall13 <- jsonlite::fromJSON(url13)
+  datcall14 <- jsonlite::fromJSON(url14)
+  datcall15 <- jsonlite::fromJSON(url15)
+  datcall16 <- jsonlite::fromJSON(url16)
+  datcall17 <- jsonlite::fromJSON(url17)
 
-  # Fetch Goals data
-  goals_url <- "https://unstats.un.org/sdgs/UNSDGAPIV5/goal"
-  goals_data <- jsonlite::fromJSON(goals_url)
+  df1<-data.frame(datcall1$targets)
+  df2<-data.frame(datcall2$targets)
+  df3<-data.frame(datcall3$targets)
+  df4<-data.frame(datcall4$targets)
+  df5<-data.frame(datcall5$targets)
+  df6<-data.frame(datcall6$targets)
+  df7<-data.frame(datcall7$targets)
+  df8<-data.frame(datcall8$targets)
+  df9<-data.frame(datcall9$targets)
+  df10<-data.frame(datcall10$targets)
+  df11<-data.frame(datcall11$targets)
+  df12<-data.frame(datcall12$targets)
+  df13<-data.frame(datcall13$targets)
+  df14<-data.frame(datcall14$targets)
+  df15<-data.frame(datcall15$targets)
+  df16<-data.frame(datcall16$targets)
+  df17<-data.frame(datcall17$targets)
 
-  # Fetch Targets data
-  targets_url <- "https://unstats.un.org/sdgs/UNSDGAPIV5/target"
-  targets_data <- jsonlite::fromJSON(targets_url)
 
-  # Combine Goals and Targets data
-  data <- dplyr::bind_rows(goals_data$data, targets_data$data)
+  data<-dplyr::bind_rows(df1,df2,df3,
+                         df4,df5,df6,
+                         df7,df8,df9,
+                         df10,df11,df12,
+                         df13,df14,df15,
+                         df16,df17)
+  data$goal<-stringi::stri_extract_first_regex(data$code, "[0-9]+")
+  data$title<-NULL
 
-  # Extract the goal number from the code
-  data$goal <- as.integer(gsub("\\D", "", data$code))
-  data$title <- NULL
-
-  if (is.null(pathtosave)) {
+  if(is.null(pathtosave)){
     return(data)
-  } else {
-    readr::write_rds(data, file.path(pathtosave, "SDGS_all.rds"))
+  }else{
+    readr::write_rds(data,paste0(pathtosave,"/","SDGS_all.rds"))
     print(paste0("'SDGS_all.rds' saved to ", pathtosave))
   }
 }
-
 # Example usage:
 # sdgs_data <- get_SDGs_goals()
 

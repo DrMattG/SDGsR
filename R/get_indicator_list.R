@@ -7,7 +7,7 @@
 
 
 get_indicator_list <- function() {
-  url <- c("https://unstats.un.org/SDGAPI/v1/sdg/Indicator/List")
+  url <- c("https://unstats.un.org/sdgs/UNSDGAPIV5/v1/sdg/Indicator/List")
   datcall <- jsonlite::fromJSON(url)
 
   indicators <- data.frame(
@@ -18,3 +18,5 @@ get_indicator_list <- function() {
   )
   return(indicators)
 }
+
+indicator_list <- get_indicator_list()
