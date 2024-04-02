@@ -5,8 +5,10 @@
 #' @export
 
 get_SDGs_goals_titles<-function(){
-url1<-c("https://unstats.un.org/SDGAPI/v1/sdg/Goal/List?includechildren=true")
+url1<-c("https://unstats.un.org/sdgs/UNSDGAPIV5/v1/sdg/Goal/List?includechildren=true")
 datcall1 <- jsonlite::fromJSON(url1)
 titles<-data.frame(datcall1$title)
 return(titles)
 }
+
+goals_titles <- get_SDGs_goals_titles()

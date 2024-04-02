@@ -8,7 +8,7 @@
 #' @export
 
 get_indicator<-function(Country, indicator){
-  url<-paste0("https://unstats.un.org/SDGAPI/v1/sdg/Indicator/Data?indicator=",
+  url<-paste0("https://unstats.un.org/sdgs/UNSDGAPIV5/v1/sdg/Indicator/Data?indicator=",
               indicator,"&areaCode=", Country)
   datcall <- jsonlite::fromJSON(url)
   page<-as.data.frame(datcall$data)
@@ -23,7 +23,7 @@ get_indicator<-function(Country, indicator){
 #' @export
 
 get_indicator_data<-function(indicator){
-  url<-paste0("https://unstats.un.org/SDGAPI/v1/sdg/Indicator/Data?indicator=",
+  url<-paste0("https://unstats.un.org/sdgs/UNSDGAPIV5/v1/sdg/Indicator/Data?indicator=",
               indicator,"&pageSize=10000")
   datcall <- jsonlite::fromJSON(url)
 
@@ -33,3 +33,7 @@ get_indicator_data<-function(indicator){
 }
 
 #Need to check the page number never exceeds 10000
+
+get_indicator_data('15.6.1')
+
+
