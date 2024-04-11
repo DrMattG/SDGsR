@@ -18,4 +18,9 @@ get_indicator_list <- function() {
   )
   return(indicators)
 }
+<<<<<<< HEAD
 indicators <- get_indicator_list()
+=======
+
+indicator_list <- get_indicator_list()
+>>>>>>> 86b01014d0dedcaa97b37db59f8a9e13fd962c49
