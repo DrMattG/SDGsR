@@ -33,11 +33,3 @@ get_indicator_data<-function(indicator){
 }
 
 #Need to check the page number never exceeds 10000
-<<<<<<< HEAD
-
-get_indicator_data('15.6.1')
-
-
-=======
-get_indicator_data(indicator="15.6.1")
->>>>>>> 86b01014d0dedcaa97b37db59f8a9e13fd962c49
