@@ -1,5 +1,8 @@
 SDGsR
 ================
+<div style="text-align:center;">
+    <img src="SDGsR_Hex.png" alt="Image" style="width:200px;height:200px;">
+</div>
 
 An R package for interacting with the UN Sustainable Development Goals
 API (<https://unstats.un.org/SDGAPI/swagger/>), inspired by
