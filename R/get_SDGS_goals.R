@@ -80,14 +80,5 @@ get_SDGs_goals<-function(pathtosave=NULL){
     print(paste0("'SDGS_all.rds' saved to ", pathtosave))
   }
 }
-<<<<<<< HEAD
 
-goals <- get_SDGs_goals()
-=======
-# Example usage:
-# sdgs_data <- get_SDGs_goals()
-
-
-Goals2 <- get_SDGs_goals()
->>>>>>> 86b01014d0dedcaa97b37db59f8a9e13fd962c49
 
