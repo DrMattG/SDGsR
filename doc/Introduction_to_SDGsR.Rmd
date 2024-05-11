@@ -16,7 +16,7 @@ knitr::opts_chunk$set(fig.width=8, fig.height=8,
 )
 ```
 
-Here is a basic runthrough of the {SDGsR} workflow. The package interfaces with UN SDGs API (see https://unstats.un.org/SDGAPI/swagger/) and allows the user to get the text of the 17 Goals, each associated Target and Indicators. This post: https://rpubs.com/angelamhkim/sdgapi was the inspiration for this package. Using the SDGsR::get_indicator() function one can get the indicator data for a specific country and indicator.   
+Here is a basic runthrough of the {SDGsR} workflow. The package interfaces with UN SDGs API (see https://unstats.un.org/sdgs/UNSDGAPIV5/swagger/) and allows the user to get the text of the 17 Goals, each associated Target and Indicators. This post: https://rpubs.com/angelamhkim/sdgapi was the inspiration for this package. Using the SDGsR::get_indicator() function one can get the indicator data for a specific country and indicator.   
 
 ## What are the SDGs?
 

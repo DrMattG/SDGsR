@@ -9,23 +9,23 @@
 
 get_SDGs_goals<-function(pathtosave=NULL){
   #all goals
-  url1<-c("https://unstats.un.org/SDGAPI/v1/sdg/Goal/1/Target/List?includechildren=true")
-  url2<-c("https://unstats.un.org/SDGAPI/v1/sdg/Goal/2/Target/List?includechildren=true")
-  url3<-c("https://unstats.un.org/SDGAPI/v1/sdg/Goal/3/Target/List?includechildren=true")
-  url4<-c("https://unstats.un.org/SDGAPI/v1/sdg/Goal/4/Target/List?includechildren=true")
-  url5<-c("https://unstats.un.org/SDGAPI/v1/sdg/Goal/5/Target/List?includechildren=true")
-  url6<-c("https://unstats.un.org/SDGAPI/v1/sdg/Goal/6/Target/List?includechildren=true")
-  url7<-c("https://unstats.un.org/SDGAPI/v1/sdg/Goal/7/Target/List?includechildren=true")
-  url8<-c("https://unstats.un.org/SDGAPI/v1/sdg/Goal/8/Target/List?includechildren=true")
-  url9<-c("https://unstats.un.org/SDGAPI/v1/sdg/Goal/9/Target/List?includechildren=true")
-  url10<-c("https://unstats.un.org/SDGAPI/v1/sdg/Goal/10/Target/List?includechildren=true")
-  url11<-c("https://unstats.un.org/SDGAPI/v1/sdg/Goal/11/Target/List?includechildren=true")
-  url12<-c("https://unstats.un.org/SDGAPI/v1/sdg/Goal/12/Target/List?includechildren=true")
-  url13<-c("https://unstats.un.org/SDGAPI/v1/sdg/Goal/13/Target/List?includechildren=true")
-  url14<-c("https://unstats.un.org/SDGAPI/v1/sdg/Goal/14/Target/List?includechildren=true")
-  url15<-c("https://unstats.un.org/SDGAPI/v1/sdg/Goal/15/Target/List?includechildren=true")
-  url16<-c("https://unstats.un.org/SDGAPI/v1/sdg/Goal/16/Target/List?includechildren=true")
-  url17<-c("https://unstats.un.org/SDGAPI/v1/sdg/Goal/17/Target/List?includechildren=true")
+  url1<-c("https://unstats.un.org/sdgs/UNSDGAPIV5/v1/sdg/Goal/1/Target/List?includechildren=true")
+  url2<-c("https://unstats.un.org/sdgs/UNSDGAPIV5/v1/sdg/Goal/2/Target/List?includechildren=true")
+  url3<-c("https://unstats.un.org/sdgs/UNSDGAPIV5/v1/sdg/Goal/3/Target/List?includechildren=true")
+  url4<-c("https://unstats.un.org/sdgs/UNSDGAPIV5/v1/sdg/Goal/4/Target/List?includechildren=true")
+  url5<-c("https://unstats.un.org/sdgs/UNSDGAPIV5/v1/sdg/Goal/5/Target/List?includechildren=true")
+  url6<-c("https://unstats.un.org/sdgs/UNSDGAPIV5/v1/sdg/Goal/6/Target/List?includechildren=true")
+  url7<-c("https://unstats.un.org/sdgs/UNSDGAPIV5/v1/sdg/Goal/7/Target/List?includechildren=true")
+  url8<-c("https://unstats.un.org/sdgs/UNSDGAPIV5/v1/sdg/Goal/8/Target/List?includechildren=true")
+  url9<-c("https://unstats.un.org/sdgs/UNSDGAPIV5/v1/sdg/Goal/9/Target/List?includechildren=true")
+  url10<-c("https://unstats.un.org/sdgs/UNSDGAPIV5/v1/sdg/Goal/10/Target/List?includechildren=true")
+  url11<-c("https://unstats.un.org/sdgs/UNSDGAPIV5/v1/sdg/Goal/11/Target/List?includechildren=true")
+  url12<-c("https://unstats.un.org/sdgs/UNSDGAPIV5/v1/sdg/Goal/12/Target/List?includechildren=true")
+  url13<-c("https://unstats.un.org/sdgs/UNSDGAPIV5/v1/sdg/Goal/13/Target/List?includechildren=true")
+  url14<-c("https://unstats.un.org/sdgs/UNSDGAPIV5/v1/sdg/Goal/14/Target/List?includechildren=true")
+  url15<-c("https://unstats.un.org/sdgs/UNSDGAPIV5/v1/sdg/Goal/15/Target/List?includechildren=true")
+  url16<-c("https://unstats.un.org/sdgs/UNSDGAPIV5/v1/sdg/Goal/16/Target/List?includechildren=true")
+  url17<-c("https://unstats.un.org/sdgs/UNSDGAPIV5/v1/sdg/Goal/17/Target/List?includechildren=true")
 
   datcall1 <- jsonlite::fromJSON(url1)
   datcall2 <- jsonlite::fromJSON(url2)
@@ -74,9 +74,11 @@ get_SDGs_goals<-function(pathtosave=NULL){
   data$title<-NULL
 
   if(is.null(pathtosave)){
-   return(data)
+    return(data)
   }else{
     readr::write_rds(data,paste0(pathtosave,"/","SDGS_all.rds"))
     print(paste0("'SDGS_all.rds' saved to ", pathtosave))
   }
 }
+
+
