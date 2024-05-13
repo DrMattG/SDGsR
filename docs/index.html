@@ -53,7 +53,7 @@
       <a href="articles/Circular_Frequency_plot.html">Circular_Frequency_plot</a>
     </li>
     <li>
-      <a href="articles/Introduction_to_SDGsR.html">Introduction to SDGsR - an interface to the UN Sustainability Goals API</a>
+      <a href="articles/Introduction_to_SDGsR.html">Introduction to SDGsR - an interface to the UN Sustainablity Goals API</a>
     </li>
     <li>
       <a href="articles/Mapping_indicators.html">Mapping SDGs Indicators</a>
@@ -83,19 +83,23 @@
 <div class="section level1">
 <div class="page-header"><h1 id="sdgsr">SDGsR<a class="anchor" aria-label="anchor" href="#sdgsr"></a>
 </h1></div>
-<p>An R package for interacting with the UN Sustainable Development Goals API (<a href="https://unstats.un.org/SDGAPI/swagger/" class="external-link uri">https://unstats.un.org/sdgs/UNSDGAPIV5/swagger/</a>), inspired by <a href="https://rpubs.com/angelamhkim/sdgapi" class="external-link uri">https://rpubs.com/angelamhkim/sdgapi</a>.</p>
+<div style="text-align:center;">
+<div class="sourceCode" id="cb1"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="sc">&lt;</span>img src<span class="ot">=</span><span class="st">"inst/hex/SDGsR_Hex.png"</span> alt<span class="ot">=</span><span class="st">"Image"</span> style<span class="ot">=</span><span class="st">"width:200px;height:200px;"</span><span class="sc">&gt;</span></span></code></pre></div>
+</div>
+<p>An R package for interacting with the UN Sustainable Development Goals API (<a href="https://unstats.un.org/sdgs/UNSDGAPIV5/swagger/" class="external-link uri">https://unstats.un.org/sdgs/UNSDGAPIV5/swagger/</a>), inspired by <a href="https://rpubs.com/angelamhkim/sdgapi" class="external-link uri">https://rpubs.com/angelamhkim/sdgapi</a>.</p>
 <p>To install this package please use:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>devtools<span class="op">::</span>install<span class="kw">_github</span>(<span class="st">"DrMattG/SDGsR"</span>, <span class="dt">dependencies =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"DrMattG/SDGsR"</span>, dependencies <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <div class="section level2">
 <h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
 </h2>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://drmattg.github.io/SDGsR/" class="external-link">SDGsR</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span>
-<span class="va">Goals</span><span class="op">&lt;-</span><span class="fu"><a href="reference/get_SDGs_goals.html">get_SDGs_goals</a></span><span class="op">(</span><span class="op">)</span>
-<span class="va">Goals</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">goal</span>, <span class="va">code</span>, <span class="va">description</span> <span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/sample_n.html" class="external-link">sample_n</a></span><span class="op">(</span><span class="va">.</span>,<span class="fl">3</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="co">#randomly select three rows to display</span>
-  <span class="fu">kableExtra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://drmattg.github.io/SDGsR/" class="external-link">SDGsR</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span></span>
+<span><span class="va">Goals</span><span class="op">&lt;-</span><span class="fu"><a href="reference/get_SDGs_goals.html">get_SDGs_goals</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="va">Goals</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">goal</span>, <span class="va">code</span>, <span class="va">description</span> <span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/sample_n.html" class="external-link">sample_n</a></span><span class="op">(</span><span class="va">.</span>,<span class="fl">3</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="co">#randomly select three rows to display</span></span>
+<span>  <span class="fu">kableExtra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <table class="table">
 <thead><tr>
 <th style="text-align:left;">
@@ -148,24 +152,24 @@
 <div class="section level2">
 <h2 id="citation">Citation<a class="anchor" aria-label="anchor" href="#citation"></a>
 </h2>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/citation.html" class="external-link">citation</a></span><span class="op">(</span><span class="st">"SDGsR"</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb4"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="co">## </span></span>
-<span id="cb4-2"><a href="#cb4-2"></a><span class="co">## To cite package 'SDGsR' in publications use:</span></span>
-<span id="cb4-3"><a href="#cb4-3"></a><span class="co">## </span></span>
-<span id="cb4-4"><a href="#cb4-4"></a><span class="co">##   Matt Grainger (2021). SDGsR: Interface with the UN SDGs API to get</span></span>
-<span id="cb4-5"><a href="#cb4-5"></a><span class="co">##   data about the Sustainable Development Goals. R package version</span></span>
-<span id="cb4-6"><a href="#cb4-6"></a><span class="co">##   0.0.0.9000. https://drmattg.github.io/SDGsR/</span></span>
-<span id="cb4-7"><a href="#cb4-7"></a><span class="co">## </span></span>
-<span id="cb4-8"><a href="#cb4-8"></a><span class="co">## A BibTeX entry for LaTeX users is</span></span>
-<span id="cb4-9"><a href="#cb4-9"></a><span class="co">## </span></span>
-<span id="cb4-10"><a href="#cb4-10"></a><span class="co">##   @Manual{,</span></span>
-<span id="cb4-11"><a href="#cb4-11"></a><span class="co">##     title = {SDGsR: Interface with the UN SDGs API to get data about the Sustainable Development Goals},</span></span>
-<span id="cb4-12"><a href="#cb4-12"></a><span class="co">##     author = {Matt Grainger},</span></span>
-<span id="cb4-13"><a href="#cb4-13"></a><span class="co">##     year = {2021},</span></span>
-<span id="cb4-14"><a href="#cb4-14"></a><span class="co">##     note = {R package version 0.0.0.9000},</span></span>
-<span id="cb4-15"><a href="#cb4-15"></a><span class="co">##     url = {https://drmattg.github.io/SDGsR/},</span></span>
-<span id="cb4-16"><a href="#cb4-16"></a><span class="co">##   }</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/citation.html" class="external-link">citation</a></span><span class="op">(</span><span class="st">"SDGsR"</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a><span class="do">## To cite package 'SDGsR' in publications use:</span></span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a><span class="do">##   Matt Grainger (2021). SDGsR: Interface with the UN SDGs API to get</span></span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a><span class="do">##   data about the Sustainable Development Goals. R package version</span></span>
+<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a><span class="do">##   0.0.0.9000. https://drmattg.github.io/SDGsR/</span></span>
+<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a><span class="do">## A BibTeX entry for LaTeX users is</span></span>
+<span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb5-10"><a href="#cb5-10" tabindex="-1"></a><span class="do">##   @Manual{,</span></span>
+<span id="cb5-11"><a href="#cb5-11" tabindex="-1"></a><span class="do">##     title = {SDGsR: Interface with the UN SDGs API to get data about the Sustainable Development Goals},</span></span>
+<span id="cb5-12"><a href="#cb5-12" tabindex="-1"></a><span class="do">##     author = {Matt Grainger},</span></span>
+<span id="cb5-13"><a href="#cb5-13" tabindex="-1"></a><span class="do">##     year = {2021},</span></span>
+<span id="cb5-14"><a href="#cb5-14" tabindex="-1"></a><span class="do">##     note = {R package version 0.0.0.9000},</span></span>
+<span id="cb5-15"><a href="#cb5-15" tabindex="-1"></a><span class="do">##     url = {https://drmattg.github.io/SDGsR/},</span></span>
+<span id="cb5-16"><a href="#cb5-16" tabindex="-1"></a><span class="do">##   }</span></span></code></pre></div>
 </div>
 </div>
   </div>
@@ -215,7 +219,7 @@
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer>

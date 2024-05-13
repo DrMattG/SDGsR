@@ -78,13 +78,15 @@
 
       
 
-      </header><script src="Introduction_to_SDGsR_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
+      </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
-      <h1 data-toc-skip>Introduction to SDGsR - an interface to the UN Sustainablity Goals API</h1>
-                        <h4 data-toc-skip class="author">Matt Grainger</h4>
+      <h1 data-toc-skip>Introduction to SDGsR - an interface to the UN
+Sustainablity Goals API</h1>
+                        <h4 data-toc-skip class="author">Matt
+Grainger</h4>
             
-            <h4 data-toc-skip class="date">2022-06-19</h4>
+            <h4 data-toc-skip class="date">2024-05-13</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/DrMattG/SDGsR/blob/HEAD/vignettes/Introduction_to_SDGsR.Rmd" class="external-link"><code>vignettes/Introduction_to_SDGsR.Rmd</code></a></small>
       <div class="hidden name"><code>Introduction_to_SDGsR.Rmd</code></div>
@@ -93,23 +95,32 @@
 
     
     
-<p>Here is a basic run-through of the {SDGsR} workflow. The package interfaces with UN SDGs API (see <a href="https://unstats.un.org/SDGAPI/swagger/" class="external-link uri">https://unstats.un.org/SDGAPI/swagger/</a>) and allows the user to get the text of the 17 Goals, each associated Target and Indicators. This post: <a href="https://rpubs.com/angelamhkim/sdgapi" class="external-link uri">https://rpubs.com/angelamhkim/sdgapi</a> was the inspiration for this package. Using the SDGsR::get_indicator() function one can get the indicator data for a specific country and indicator.</p>
+<p>Here is a basic run-through of the {SDGsR} workflow. The package
+interfaces with UN SDGs API (see <a href="https://unstats.un.org/SDGAPI/swagger/" class="external-link uri">https://unstats.un.org/SDGAPI/swagger/</a>) and allows the
+user to get the text of the 17 Goals, each associated Target and
+Indicators. This post: <a href="https://rpubs.com/angelamhkim/sdgapi" class="external-link uri">https://rpubs.com/angelamhkim/sdgapi</a> was the inspiration
+for this package. Using the SDGsR::get_indicator() function one can get
+the indicator data for a specific country and indicator.</p>
 <div class="section level2">
 <h2 id="what-are-the-sdgs">What are the SDGs?<a class="anchor" aria-label="anchor" href="#what-are-the-sdgs"></a>
 </h2>
-<p>For a comprehensive explanation of what the SDGs are and how they were developed please see <a href="https://www.undp.org/content/undp/en/home/sustainable-development-goals.html" class="external-link uri">https://www.undp.org/content/undp/en/home/sustainable-development-goals.html</a></p>
+<p>For a comprehensive explanation of what the SDGs are and how they
+were developed please see <a href="https://www.undp.org/content/undp/en/home/sustainable-development-goals.html" class="external-link uri">https://www.undp.org/content/undp/en/home/sustainable-development-goals.html</a></p>
 </div>
 <div class="section level2">
 <h2 id="using-the-sdgsr-package">Using the {SDGsR} package<a class="anchor" aria-label="anchor" href="#using-the-sdgsr-package"></a>
 </h2>
-<p>Currently, there are five functions in the package which facilitate interaction with the SDGs API.</p>
-<p>To get the text of the Goals we can use the SDGsR::get_SDGs_goals() function. This gathers together all the Goals in to a single dataframe.</p>
+<p>Currently, there are five functions in the package which facilitate
+interaction with the SDGs API.</p>
+<p>To get the text of the Goals we can use the SDGsR::get_SDGs_goals()
+function. This gathers together all the Goals in to a single
+dataframe.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://drmattg.github.io/SDGsR/" class="external-link">SDGsR</a></span><span class="op">)</span>
-<span class="va">Goals</span><span class="op">&lt;-</span><span class="fu"><a href="../reference/get_SDGs_goals.html">get_SDGs_goals</a></span><span class="op">(</span><span class="op">)</span>
-<span class="va">Goals</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">goal</span>, <span class="va">code</span>, <span class="va">description</span> <span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/sample_n.html" class="external-link">sample_n</a></span><span class="op">(</span><span class="va">.</span>,<span class="fl">3</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="co">#randomly select three rows to display</span>
-  <span class="fu">kableExtra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://drmattg.github.io/SDGsR/" class="external-link">SDGsR</a></span><span class="op">)</span></span>
+<span><span class="va">Goals</span><span class="op">&lt;-</span><span class="fu"><a href="../reference/get_SDGs_goals.html">get_SDGs_goals</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="va">Goals</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">goal</span>, <span class="va">code</span>, <span class="va">description</span> <span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/sample_n.html" class="external-link">sample_n</a></span><span class="op">(</span><span class="va">.</span>,<span class="fl">3</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="co">#randomly select three rows to display</span></span>
+<span>  <span class="fu">kableExtra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <table class="table">
 <thead><tr>
 <th style="text-align:left;">
@@ -125,52 +136,67 @@ description
 <tbody>
 <tr>
 <td style="text-align:left;">
-16
+17
 </td>
 <td style="text-align:left;">
-16.2
+17.4
 </td>
 <td style="text-align:left;">
-End abuse, exploitation, trafficking and all forms of violence against and torture of children
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-4
-</td>
-<td style="text-align:left;">
-4.1
-</td>
-<td style="text-align:left;">
-By 2030, ensure that all girls and boys complete free, equitable and quality primary and secondary education leading to relevant and effective learning outcomes
+Assist developing countries in attaining long-term debt sustainability
+through coordinated policies aimed at fostering debt financing, debt
+relief and debt restructuring, as appropriate, and address the external
+debt of highly indebted poor countries to reduce debt distress
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-8
+6
 </td>
 <td style="text-align:left;">
-8.2
+6.6
 </td>
 <td style="text-align:left;">
-Achieve higher levels of economic productivity through diversification, technological upgrading and innovation, including through a focus on high-value added and labour-intensive sectors
+By 2020, protect and restore water-related ecosystems, including
+mountains, forests, wetlands, rivers, aquifers and lakes
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+15
+</td>
+<td style="text-align:left;">
+15.3
+</td>
+<td style="text-align:left;">
+By 2030, combat desertification, restore degraded land and soil,
+including land affected by desertification, drought and floods, and
+strive to achieve a land degradation-neutral world
 </td>
 </tr>
 </tbody>
 </table>
-<p>The most useful function is the SDGsR::get_indicator() function that allows the user to query the data for a specific indicator in a specific country. First we need to make sure we know which is the correct code for the country and for the indicator as the API uses these to distinguish which data to export. There is an country list in the package that you can use to find the name of the country you are looking for.</p>
+<p>The most useful function is the SDGsR::get_indicator() function that
+allows the user to query the data for a specific indicator in a specific
+country. First we need to make sure we know which is the correct code
+for the country and for the indicator as the API uses these to
+distinguish which data to export. There is an country list in the
+package that you can use to find the name of the country you are looking
+for.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fu"><a href="../reference/get_country_list.html">get_country_list</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>
-<span class="co">#&gt; [1] "Afghanistan"    "Åland Islands"  "Albania"        "Algeria"       </span>
-<span class="co">#&gt; [5] "American Samoa" "Andorra"</span></code></pre></div>
-<p>To find a specific indicator we need to know the right code to use. We can get a list of all the indicators by using SDGsR::get_indicator_list. I am interested in the indicators that are in Goal 15 Life on Land.</p>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fu"><a href="../reference/get_country_list.html">get_country_list</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "Afghanistan"    "Åland Islands"  "Albania"        "Algeria"       </span></span>
+<span><span class="co">#&gt; [5] "American Samoa" "Andorra"</span></span></code></pre></div>
+<p>To find a specific indicator we need to know the right code to use.
+We can get a list of all the indicators by using
+SDGsR::get_indicator_list. I am interested in the indicators that are in
+Goal 15 Life on Land.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">ind_lst</span><span class="op">&lt;-</span><span class="fu"><a href="../reference/get_indicator_list.html">get_indicator_list</a></span><span class="op">(</span><span class="op">)</span>
-
-<span class="va">ind_lst</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">goal</span><span class="op">==</span><span class="st">"15"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">target</span>, <span class="va">code</span>, <span class="va">description</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
-  <span class="fu">kableExtra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">ind_lst</span><span class="op">&lt;-</span><span class="fu"><a href="../reference/get_indicator_list.html">get_indicator_list</a></span><span class="op">(</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">ind_lst</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">goal</span><span class="op">==</span><span class="st">"15"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">target</span>, <span class="va">code</span>, <span class="va">description</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>  <span class="fu">kableExtra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <table class="table">
 <thead><tr>
 <th style="text-align:left;">
@@ -203,7 +229,8 @@ Forest area as a proportion of total land area
 15.1.2
 </td>
 <td style="text-align:left;">
-Proportion of important sites for terrestrial and freshwater biodiversity that are covered by protected areas, by ecosystem type
+Proportion of important sites for terrestrial and freshwater
+biodiversity that are covered by protected areas, by ecosystem type
 </td>
 </tr>
 <tr>
@@ -247,7 +274,9 @@ Coverage by protected areas of important sites for mountain biodiversity
 15.4.2
 </td>
 <td style="text-align:left;">
-Mountain Green Cover Index
+<ol style="list-style-type: lower-alpha"><li>Mountain Green Cover Index and (b) proportion of degraded mountain
+land
+</li></ol>
 </td>
 </tr>
 <tr>
@@ -269,7 +298,8 @@ Red List Index
 15.6.1
 </td>
 <td style="text-align:left;">
-Number of countries that have adopted legislative, administrative and policy frameworks to ensure fair and equitable sharing of benefits
+Number of countries that have adopted legislative, administrative and
+policy frameworks to ensure fair and equitable sharing of benefits
 </td>
 </tr>
 <tr>
@@ -291,7 +321,9 @@ Proportion of traded wildlife that was poached or illicitly trafficked
 15.8.1
 </td>
 <td style="text-align:left;">
-Proportion of countries adopting relevant national legislation and adequately resourcing the prevention or control of invasive alien species
+Proportion of countries adopting relevant national legislation and
+adequately resourcing the prevention or control of invasive alien
+species
 </td>
 </tr>
 <tr>
@@ -302,7 +334,13 @@ Proportion of countries adopting relevant national legislation and adequately re
 15.9.1
 </td>
 <td style="text-align:left;">
-<ol style="list-style-type: lower-alpha"><li>Number of countries that have established national targets in accordance with or similar to Aichi Biodiversity Target 2 of the Strategic Plan for Biodiversity 2011–2020 in their national biodiversity strategy and action plans and the progress reported towards these targets; and (b) integration of biodiversity into national accounting and reporting systems, defined as implementation of the System of Environmental-Economic Accounting
+<ol style="list-style-type: lower-alpha"><li>Number of countries that have established national targets in
+accordance with or similar to Aichi Biodiversity Target 2 of the
+Strategic Plan for Biodiversity 2011–2020 in their national biodiversity
+strategy and action plans and the progress reported towards these
+targets; and (b) integration of biodiversity into national accounting
+and reporting systems, defined as implementation of the System of
+Environmental-Economic Accounting
 </li></ol>
 </td>
 </tr>
@@ -314,7 +352,9 @@ Proportion of countries adopting relevant national legislation and adequately re
 15.a.1
 </td>
 <td style="text-align:left;">
-<ol style="list-style-type: lower-alpha"><li>Official development assistance on conservation and sustainable use of biodiversity; and (b) revenue generated and finance mobilized from biodiversity-relevant economic instruments
+<ol style="list-style-type: lower-alpha"><li>Official development assistance on conservation and sustainable use
+of biodiversity; and (b) revenue generated and finance mobilized from
+biodiversity-relevant economic instruments
 </li></ol>
 </td>
 </tr>
@@ -326,7 +366,9 @@ Proportion of countries adopting relevant national legislation and adequately re
 15.b.1
 </td>
 <td style="text-align:left;">
-<ol style="list-style-type: lower-alpha"><li>Official development assistance on conservation and sustainable use of biodiversity; and (b) revenue generated and finance mobilized from biodiversity-relevant economic instruments
+<ol style="list-style-type: lower-alpha"><li>Official development assistance on conservation and sustainable use
+of biodiversity; and (b) revenue generated and finance mobilized from
+biodiversity-relevant economic instruments
 </li></ol>
 </td>
 </tr>
@@ -343,26 +385,33 @@ Proportion of traded wildlife that was poached or illicitly trafficked
 </tr>
 </tbody>
 </table>
-<p>Let’s look at the indicator for Target 15.4, “15.4.1: Coverage by protected areas of important sites for mountain biodiversity” and we will specify Norway as our country of interest. We know that Norway is named Norway on our country list (which is obvious but some countries are named in different ways to how we might commonly expect, e.g. Vietnam is specified as “Viet Nam”, Venezuela is specified as “Venezuela (Bolivarian Republic of)”).</p>
+<p>Let’s look at the indicator for Target 15.4, “15.4.1: Coverage by
+protected areas of important sites for mountain biodiversity” and we
+will specify Norway as our country of interest. We know that Norway is
+named Norway on our country list (which is obvious but some countries
+are named in different ways to how we might commonly expect,
+e.g. Vietnam is specified as “Viet Nam”, Venezuela is specified as
+“Venezuela (Bolivarian Republic of)”).</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">Norway_code</span><span class="op">&lt;-</span><span class="fu"><a href="../reference/lookup_country.html">lookup_country</a></span><span class="op">(</span>code<span class="op">=</span><span class="st">"M49"</span>, country <span class="op">=</span> <span class="st">"Norway"</span><span class="op">)</span>
-<span class="va">Norway_code</span>
-<span class="co">#&gt; [1] 578</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">Norway_code</span><span class="op">&lt;-</span><span class="fu"><a href="../reference/lookup_country.html">lookup_country</a></span><span class="op">(</span>code<span class="op">=</span><span class="st">"M49"</span>, country <span class="op">=</span> <span class="st">"Norway"</span><span class="op">)</span></span>
+<span><span class="va">Norway_code</span></span>
+<span><span class="co">#&gt; [1] 578</span></span></code></pre></div>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">Norway</span><span class="op">&lt;-</span><span class="fu"><a href="../reference/get_indicator.html">get_indicator</a></span><span class="op">(</span>Country <span class="op">=</span> <span class="va">Norway_code</span>, indicator <span class="op">=</span> <span class="st">"15.4.1"</span><span class="op">)</span></code></pre></div>
-<p>We can then make a plot of this data using the SDGsR::SDGs_colours() function.</p>
+<code class="sourceCode R"><span><span class="va">Norway</span><span class="op">&lt;-</span><span class="fu"><a href="../reference/get_indicator.html">get_indicator</a></span><span class="op">(</span>Country <span class="op">=</span> <span class="va">Norway_code</span>, indicator <span class="op">=</span> <span class="st">"15.4.1"</span><span class="op">)</span></span></code></pre></div>
+<p>We can then make a plot of this data using the SDGsR::SDGs_colours()
+function.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R">
-<span class="va">p1</span><span class="op">&lt;-</span><span class="va">Norway</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">timePeriodStart</span>,<span class="va">value</span>,<span class="va">seriesDescription</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span><span class="va">timePeriodStart</span>, <span class="fu"><a href="https://rdrr.io/r/base/numeric.html" class="external-link">as.numeric</a></span><span class="op">(</span><span class="va">value</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html" class="external-link">geom_point</a></span><span class="op">(</span>colour<span class="op">=</span><span class="fu"><a href="../reference/SDGs_cols.html">SDGs_cols</a></span><span class="op">(</span><span class="st">"Goal15"</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>x<span class="op">=</span><span class="st">"Year"</span>, y<span class="op">=</span><span class="st">"% Mountain Area Protected"</span><span class="op">)</span><span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">ggtitle</a></span><span class="op">(</span>label<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="va">Norway</span><span class="op">$</span><span class="va">seriesDescription</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">ggpubr</span><span class="fu">::</span><span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/theme_pubr.html" class="external-link">theme_pubclean</a></span><span class="op">(</span><span class="op">)</span><span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span>plot.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">12</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span></span>
+<span><span class="va">p1</span><span class="op">&lt;-</span><span class="va">Norway</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">timePeriodStart</span>,<span class="va">value</span>,<span class="va">seriesDescription</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span><span class="va">timePeriodStart</span>, <span class="fu"><a href="https://rdrr.io/r/base/numeric.html" class="external-link">as.numeric</a></span><span class="op">(</span><span class="va">value</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html" class="external-link">geom_point</a></span><span class="op">(</span>colour<span class="op">=</span><span class="fu"><a href="../reference/SDGs_cols.html">SDGs_cols</a></span><span class="op">(</span><span class="st">"Goal15"</span><span class="op">)</span><span class="op">)</span><span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>x<span class="op">=</span><span class="st">"Year"</span>, y<span class="op">=</span><span class="st">"% Mountain Area Protected"</span><span class="op">)</span><span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">ggtitle</a></span><span class="op">(</span>label<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="va">Norway</span><span class="op">$</span><span class="va">seriesDescription</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">ggpubr</span><span class="fu">::</span><span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/theme_pubr.html" class="external-link">theme_pubclean</a></span><span class="op">(</span><span class="op">)</span><span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span>plot.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">12</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">p1</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">p1</span></span></code></pre></div>
 <p><img src="Introduction_to_SDGsR_files/figure-html/unnamed-chunk-7-1.png" width="768"></p>
 </div>
   </div>
@@ -384,7 +433,7 @@ Proportion of traded wildlife that was poached or illicitly trafficked
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer>

@@ -66,25 +66,30 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">get_indicator</span><span class="op">(</span><span class="va">Country</span>, <span class="va">indicator</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">get_indicator</span><span class="op">(</span><span class="va">Country</span>, <span class="va">indicator</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>Country</dt>
 <dd><p>the M49 code for the country you are interested in</p></dd>
+
+
 <dt>indicator</dt>
 <dd><p>the code for the indicator you are interested in</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>dataframe of indicator and values</p>
+    
+
+<p>dataframe of indicator and values</p>
     </div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="va"><a href="https://drmattg.github.io/SDGsR/" class="external-link">SDGsR</a></span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">get_indicator</span><span class="op">(</span>Country<span class="op">=</span><span class="st">"12"</span>, indicator<span class="op">=</span><span class="st">"15.6.1"</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="va"><a href="https://drmattg.github.io/SDGsR/" class="external-link">SDGsR</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">get_indicator</span><span class="op">(</span>Country<span class="op">=</span><span class="st">"12"</span>, indicator<span class="op">=</span><span class="st">"15.6.1"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    goal target indicator          series</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1    15   15.6    15.6.1     ER_CBD_SMTA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2    15   15.6    15.6.1     ER_CBD_SMTA</span>
@@ -97,20 +102,20 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> 9    15   15.6    15.6.1     ER_CBD_SMTA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 10   15   15.6    15.6.1     ER_CBD_SMTA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 11   15   15.6    15.6.1     ER_CBD_SMTA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12   15   15.6    15.6.1   ER_CBD_NAGOYA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13   15   15.6    15.6.1 ER_CBD_ABSCLRHS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14   15   15.6    15.6.1 ER_CBD_ORSPGRFA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15   15   15.6    15.6.1 ER_CBD_ORSPGRFA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16   15   15.6    15.6.1 ER_CBD_ORSPGRFA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17   15   15.6    15.6.1 ER_CBD_ORSPGRFA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18   15   15.6    15.6.1 ER_CBD_ORSPGRFA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19   15   15.6    15.6.1 ER_CBD_ORSPGRFA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12   15   15.6    15.6.1     ER_CBD_SMTA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13   15   15.6    15.6.1   ER_CBD_NAGOYA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14   15   15.6    15.6.1   ER_CBD_NAGOYA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15   15   15.6    15.6.1   ER_CBD_NAGOYA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16   15   15.6    15.6.1 ER_CBD_ABSCLRHS</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17   15   15.6    15.6.1 ER_CBD_ABSCLRHS</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18   15   15.6    15.6.1 ER_CBD_ABSCLRHS</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19   15   15.6    15.6.1 ER_CBD_ABSCLRHS</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 20   15   15.6    15.6.1 ER_CBD_ORSPGRFA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21   15   15.6    15.6.1 ER_CBD_PTYPGRFA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22   15   15.6    15.6.1 ER_CBD_PTYPGRFA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23   15   15.6    15.6.1 ER_CBD_PTYPGRFA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24   15   15.6    15.6.1 ER_CBD_PTYPGRFA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25   15   15.6    15.6.1 ER_CBD_PTYPGRFA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21   15   15.6    15.6.1 ER_CBD_ORSPGRFA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22   15   15.6    15.6.1 ER_CBD_ORSPGRFA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23   15   15.6    15.6.1 ER_CBD_ORSPGRFA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24   15   15.6    15.6.1 ER_CBD_ORSPGRFA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25   15   15.6    15.6.1 ER_CBD_ORSPGRFA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                                                                                                                                                                         seriesDescription</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1                                                                                            Total reported number of Standard Material Transfer Agreements (SMTAs) transferring plant genetic resources for food and agriculture to the country (number)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2                                                                                            Total reported number of Standard Material Transfer Agreements (SMTAs) transferring plant genetic resources for food and agriculture to the country (number)</span>
@@ -123,46 +128,46 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> 9                                                                                            Total reported number of Standard Material Transfer Agreements (SMTAs) transferring plant genetic resources for food and agriculture to the country (number)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 10                                                                                           Total reported number of Standard Material Transfer Agreements (SMTAs) transferring plant genetic resources for food and agriculture to the country (number)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 11                                                                                           Total reported number of Standard Material Transfer Agreements (SMTAs) transferring plant genetic resources for food and agriculture to the country (number)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12                                                                                                                                                                                    Countries that are parties to the Nagoya Protocol (1 = YES; 0 = NO)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13                                                                                           Countries that have legislative, administrative and policy framework or measures reported to the Access and Benefit-Sharing Clearing-House (1 = YES; 0 = NO)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14 Countries that have legislative, administrative and policy framework or measures reported through the Online Reporting System on Compliance  of the International Treaty on Plant Genetic Resources for Food and Agriculture (PGRFA) (1 = YES; 0 = NO)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15 Countries that have legislative, administrative and policy framework or measures reported through the Online Reporting System on Compliance  of the International Treaty on Plant Genetic Resources for Food and Agriculture (PGRFA) (1 = YES; 0 = NO)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16 Countries that have legislative, administrative and policy framework or measures reported through the Online Reporting System on Compliance  of the International Treaty on Plant Genetic Resources for Food and Agriculture (PGRFA) (1 = YES; 0 = NO)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17 Countries that have legislative, administrative and policy framework or measures reported through the Online Reporting System on Compliance  of the International Treaty on Plant Genetic Resources for Food and Agriculture (PGRFA) (1 = YES; 0 = NO)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18 Countries that have legislative, administrative and policy framework or measures reported through the Online Reporting System on Compliance  of the International Treaty on Plant Genetic Resources for Food and Agriculture (PGRFA) (1 = YES; 0 = NO)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19 Countries that have legislative, administrative and policy framework or measures reported through the Online Reporting System on Compliance  of the International Treaty on Plant Genetic Resources for Food and Agriculture (PGRFA) (1 = YES; 0 = NO)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12                                                                                           Total reported number of Standard Material Transfer Agreements (SMTAs) transferring plant genetic resources for food and agriculture to the country (number)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13                                                                                                                                                                                    Countries that are parties to the Nagoya Protocol (1 = YES; 0 = NO)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14                                                                                                                                                                                    Countries that are parties to the Nagoya Protocol (1 = YES; 0 = NO)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15                                                                                                                                                                                    Countries that are parties to the Nagoya Protocol (1 = YES; 0 = NO)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16                                                                                           Countries that have legislative, administrative and policy framework or measures reported to the Access and Benefit-Sharing Clearing-House (1 = YES; 0 = NO)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17                                                                                           Countries that have legislative, administrative and policy framework or measures reported to the Access and Benefit-Sharing Clearing-House (1 = YES; 0 = NO)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18                                                                                           Countries that have legislative, administrative and policy framework or measures reported to the Access and Benefit-Sharing Clearing-House (1 = YES; 0 = NO)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19                                                                                           Countries that have legislative, administrative and policy framework or measures reported to the Access and Benefit-Sharing Clearing-House (1 = YES; 0 = NO)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 20 Countries that have legislative, administrative and policy framework or measures reported through the Online Reporting System on Compliance  of the International Treaty on Plant Genetic Resources for Food and Agriculture (PGRFA) (1 = YES; 0 = NO)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21                                                                                                       Countries that are contracting Parties to the International Treaty on Plant Genetic Resources for Food and Agriculture (PGRFA) (1 = YES; 0 = NO)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22                                                                                                       Countries that are contracting Parties to the International Treaty on Plant Genetic Resources for Food and Agriculture (PGRFA) (1 = YES; 0 = NO)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23                                                                                                       Countries that are contracting Parties to the International Treaty on Plant Genetic Resources for Food and Agriculture (PGRFA) (1 = YES; 0 = NO)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24                                                                                                       Countries that are contracting Parties to the International Treaty on Plant Genetic Resources for Food and Agriculture (PGRFA) (1 = YES; 0 = NO)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25                                                                                                       Countries that are contracting Parties to the International Treaty on Plant Genetic Resources for Food and Agriculture (PGRFA) (1 = YES; 0 = NO)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21 Countries that have legislative, administrative and policy framework or measures reported through the Online Reporting System on Compliance  of the International Treaty on Plant Genetic Resources for Food and Agriculture (PGRFA) (1 = YES; 0 = NO)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22 Countries that have legislative, administrative and policy framework or measures reported through the Online Reporting System on Compliance  of the International Treaty on Plant Genetic Resources for Food and Agriculture (PGRFA) (1 = YES; 0 = NO)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23 Countries that have legislative, administrative and policy framework or measures reported through the Online Reporting System on Compliance  of the International Treaty on Plant Genetic Resources for Food and Agriculture (PGRFA) (1 = YES; 0 = NO)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24 Countries that have legislative, administrative and policy framework or measures reported through the Online Reporting System on Compliance  of the International Treaty on Plant Genetic Resources for Food and Agriculture (PGRFA) (1 = YES; 0 = NO)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25 Countries that have legislative, administrative and policy framework or measures reported through the Online Reporting System on Compliance  of the International Treaty on Plant Genetic Resources for Food and Agriculture (PGRFA) (1 = YES; 0 = NO)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    seriesCount geoAreaCode geoAreaName timePeriodStart value valueType</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1         3174          12     Algeria            2012   365     Float</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2         3174          12     Algeria            2013   426     Float</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3         3174          12     Algeria            2014   473     Float</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4         3174          12     Algeria            2015   517     Float</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5         3174          12     Algeria            2016   536     Float</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6         3174          12     Algeria            2017   549     Float</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7         3174          12     Algeria            2018   561     Float</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8         3174          12     Algeria            2019   575     Float</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9         3174          12     Algeria            2020   586     Float</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10        3174          12     Algeria            2021   586     Float</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11        3174          12     Algeria            2022   586     Float</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12         344          12     Algeria            2021     0     Float</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13         344          12     Algeria            2019     1     Float</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14        1876          12     Algeria            2016     0     Float</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15        1876          12     Algeria            2017     0     Float</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16        1876          12     Algeria            2018     0     Float</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17        1876          12     Algeria            2019     0     Float</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18        1876          12     Algeria            2020     0     Float</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19        1876          12     Algeria            2021     0     Float</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20        1876          12     Algeria            2022     0     Float</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21        2947          12     Algeria            2012     1     Float</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22        2947          12     Algeria            2013     1     Float</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23        2947          12     Algeria            2014     1     Float</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24        2947          12     Algeria            2015     1     Float</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25        2947          12     Algeria            2016     1     Float</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1         3492          12     Algeria            2012   365     Float</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2         3492          12     Algeria            2013   426     Float</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3         3492          12     Algeria            2014   473     Float</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4         3492          12     Algeria            2015   517     Float</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5         3492          12     Algeria            2016   536     Float</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6         3492          12     Algeria            2017   549     Float</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7         3492          12     Algeria            2018   561     Float</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8         3492          12     Algeria            2019   576     Float</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9         3492          12     Algeria            2020   588     Float</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10        3492          12     Algeria            2021   595     Float</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11        3492          12     Algeria            2022   609     Float</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12        3492          12     Algeria            2023   613     Float</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13         779          12     Algeria            2021     0     Float</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14         779          12     Algeria            2022     0     Float</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15         779          12     Algeria            2023     0     Float</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16         847          12     Algeria            2019     1     Float</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17         847          12     Algeria            2021     1     Float</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18         847          12     Algeria            2022     1     Float</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19         847          12     Algeria            2023     1     Float</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20        2159          12     Algeria            2016     0     Float</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21        2159          12     Algeria            2017     0     Float</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22        2159          12     Algeria            2018     0     Float</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23        2159          12     Algeria            2019     0     Float</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24        2159          12     Algeria            2020     0     Float</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25        2159          12     Algeria            2021     0     Float</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    time_detail timeCoverage upperBound lowerBound basePeriod</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1           NA           NA         NA         NA         NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2           NA           NA         NA         NA         NA</span>
@@ -201,14 +206,14 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> 9                                                                                                                                                                                                                                             ITPGRFA Secretariat </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 10                                                                                                                                                                                                                                            ITPGRFA Secretariat </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 11                                                                                                                                                                                                                                            ITPGRFA Secretariat </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12 https://www.cbd.int/abs/nagoya-protocol/signatories/default.shtml, Access and Benefit-sharing Clearing-house https://absch.cbd.int/, http://www.fao.org/plant-treaty/countries/membership/en/,  The Online Reporting System on Compliance of the International </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13                                                                                                                                                                                                                                 https://absch.cbd.int/countries</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14                                                                                                                                                                                                                                            ITPGRFA Secretariat </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15                                                                                                                                                                                                                                            ITPGRFA Secretariat </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16                                                                                                                                                                                                                                            ITPGRFA Secretariat </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17                                                                                                                                                                                                                                            ITPGRFA Secretariat </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18                                                                                                                                                                                                                                            ITPGRFA Secretariat </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19                                                                                                                                                                                                                                            ITPGRFA Secretariat </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12                                                                                                                                                                                                                                            ITPGRFA Secretariat </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13 https://www.cbd.int/abs/nagoya-protocol/signatories/default.shtml, Access and Benefit-sharing Clearing-house https://absch.cbd.int/, http://www.fao.org/plant-treaty/countries/membership/en/,  The Online Reporting System on Compliance of the International </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14 https://www.cbd.int/abs/nagoya-protocol/signatories/default.shtml, Access and Benefit-sharing Clearing-house https://absch.cbd.int/, http://www.fao.org/plant-treaty/countries/membership/en/,  The Online Reporting System on Compliance of the International </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15 https://www.cbd.int/abs/nagoya-protocol/signatories/default.shtml, Access and Benefit-sharing Clearing-house https://absch.cbd.int/, http://www.fao.org/plant-treaty/countries/membership/en/,  The Online Reporting System on Compliance of the International </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16                                                                                                                                                                                                                                 https://absch.cbd.int/countries</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17                                                                                                                                                                                                                                 https://absch.cbd.int/countries</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18                                                                                                                                                                                                                                 https://absch.cbd.int/countries</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19                                                                                                                                                                                                                                 https://absch.cbd.int/countries</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 20                                                                                                                                                                                                                                            ITPGRFA Secretariat </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 21                                                                                                                                                                                                                                            ITPGRFA Secretariat </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 22                                                                                                                                                                                                                                            ITPGRFA Secretariat </span>
@@ -253,46 +258,46 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> 9                                                                                                                                                                                                                                                Cumulative value.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 10                                                                                                                                                                                                                                               Cumulative value.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 11                                                                                                                                                                                                                                               Cumulative value.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12 Parties  refers to Parties to the Convention on Biological Diversity that have ratified, accepted, approved or acceded the Nagoya Protocol, including those for which the Protocol has not yet entered into force following the 90 days period set out in Artic</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13                                                            ABS measures reported refers to legislative, administrative and policy framework or measures reported to the ABS Clearing-House. For values:  TRUE = 1.0; FALSE = 0.0. Data as per 15 February 2017.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14                                                                                                                                                                                                                                                                </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15                                                                                                                                                                                                                                                                </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16                                                                                                                                                                                                                                                                </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17                                                                                                                                                                                                                                                                </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18                                                                                                                                                                                                                                                                </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19                                                                                                                                                                                                                                                                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12                                                                                                                                                                                                                                               Cumulative value.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13 Parties  refers to Parties to the Convention on Biological Diversity that have ratified, accepted, approved or acceded the Nagoya Protocol, including those for which the Protocol has not yet entered into force following the 90 days period set out in Artic</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14 Parties  refers to Parties to the Convention on Biological Diversity that have ratified, accepted, approved or acceded the Nagoya Protocol, including those for which the Protocol has not yet entered into force following the 90 days period set out in Artic</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15 Parties  refers to Parties to the Convention on Biological Diversity that have ratified, accepted, approved or acceded the Nagoya Protocol, including those for which the Protocol has not yet entered into force following the 90 days period set out in Artic</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16                                                            ABS measures reported refers to legislative, administrative and policy framework or measures reported to the ABS Clearing-House. For values:  TRUE = 1.0; FALSE = 0.0. Data as per 15 February 2017.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17                                                            ABS measures reported refers to legislative, administrative and policy framework or measures reported to the ABS Clearing-House. For values:  TRUE = 1.0; FALSE = 0.0. Data as per 15 February 2017.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18                                                            ABS measures reported refers to legislative, administrative and policy framework or measures reported to the ABS Clearing-House. For values:  TRUE = 1.0; FALSE = 0.0. Data as per 15 February 2017.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19                                                            ABS measures reported refers to legislative, administrative and policy framework or measures reported to the ABS Clearing-House. For values:  TRUE = 1.0; FALSE = 0.0. Data as per 15 February 2017.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 20                                                                                                                                                                                                                                                                </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 21                                                                                                                                                                                                                                                                </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 22                                                                                                                                                                                                                                                                </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 23                                                                                                                                                                                                                                                                </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 24                                                                                                                                                                                                                                                                </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 25                                                                                                                                                                                                                                                                </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    attributes.Nature attributes.Units Reporting Type</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                  C           NUMBER              G</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                  C           NUMBER              G</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                  C           NUMBER              G</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                  C           NUMBER              G</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                  C           NUMBER              G</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                  C           NUMBER              G</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                  C           NUMBER              G</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                  C           NUMBER              G</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9                  C           NUMBER              G</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10                 C           NUMBER              G</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11                 C           NUMBER              G</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12                 C           NUMBER              G</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13                 C           NUMBER              G</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14                 C           NUMBER              G</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15                 C           NUMBER              G</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16                 C           NUMBER              G</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17                 C           NUMBER              G</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18                 C           NUMBER              G</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19                 C           NUMBER              G</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20                 C           NUMBER              G</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21                 C           NUMBER              G</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22                 C           NUMBER              G</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23                 C           NUMBER              G</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24                 C           NUMBER              G</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25                 C           NUMBER              G</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    Nature Reporting Type</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1       C              G</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2       C              G</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3       C              G</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4       C              G</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5       C              G</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6       C              G</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7       C              G</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8       C              G</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9       C              G</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10      C              G</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11      C              G</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12      C              G</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13      C              G</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14      C              G</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15      C              G</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16      C              G</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17      C              G</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18      C              G</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19      C              G</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20      C              G</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21      C              G</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22      C              G</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23      C              G</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24      C              G</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25      C              G</span>
 </code></pre></div>
     </div>
   </div>
@@ -307,7 +312,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer></div>

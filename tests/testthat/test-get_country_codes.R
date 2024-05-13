@@ -1,3 +1,5 @@
-test_that("multiplication works", {
-  expect_equal(2 * 2, 4)
+test_that("lookup country codes works", {
+  expect_equal(
+    lookup_country(get_country_list()[166],"M49"),578
+  )
 })

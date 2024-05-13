@@ -78,7 +78,7 @@
 
       
 
-      </header><script src="Circular_Frequency_plot_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
+      </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Circular_Frequency_plot</h1>
@@ -92,134 +92,132 @@
     
     
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://drmattg.github.io/SDGsR/" class="external-link">SDGsR</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span>
-<span class="co">#&gt; Warning: package 'tidyverse' was built under R version 4.0.5</span>
-<span class="co">#&gt; -- <span style="font-weight: bold;">Attaching packages</span> --------------------------------------- tidyverse 1.3.1 --</span>
-<span class="co">#&gt; <span style="color: #00BB00;">v</span> <span style="color: #0000BB;">ggplot2</span> 3.3.5     <span style="color: #00BB00;">v</span> <span style="color: #0000BB;">purrr  </span> 0.3.4</span>
-<span class="co">#&gt; <span style="color: #00BB00;">v</span> <span style="color: #0000BB;">tibble </span> 3.1.6     <span style="color: #00BB00;">v</span> <span style="color: #0000BB;">dplyr  </span> 1.0.8</span>
-<span class="co">#&gt; <span style="color: #00BB00;">v</span> <span style="color: #0000BB;">tidyr  </span> 1.2.0     <span style="color: #00BB00;">v</span> <span style="color: #0000BB;">stringr</span> 1.4.0</span>
-<span class="co">#&gt; <span style="color: #00BB00;">v</span> <span style="color: #0000BB;">readr  </span> 2.1.2     <span style="color: #00BB00;">v</span> <span style="color: #0000BB;">forcats</span> 0.5.1</span>
-<span class="co">#&gt; Warning: package 'ggplot2' was built under R version 4.0.5</span>
-<span class="co">#&gt; Warning: package 'tibble' was built under R version 4.0.5</span>
-<span class="co">#&gt; Warning: package 'tidyr' was built under R version 4.0.5</span>
-<span class="co">#&gt; Warning: package 'readr' was built under R version 4.0.5</span>
-<span class="co">#&gt; Warning: package 'dplyr' was built under R version 4.0.5</span>
-<span class="co">#&gt; -- <span style="font-weight: bold;">Conflicts</span> ------------------------------------------ tidyverse_conflicts() --</span>
-<span class="co">#&gt; <span style="color: #BB0000;">x</span> <span style="color: #0000BB;">dplyr</span>::<span style="color: #00BB00;">filter()</span> masks <span style="color: #0000BB;">stats</span>::filter()</span>
-<span class="co">#&gt; <span style="color: #BB0000;">x</span> <span style="color: #0000BB;">dplyr</span>::<span style="color: #00BB00;">lag()</span>    masks <span style="color: #0000BB;">stats</span>::lag()</span></code></pre></div>
-<p>To create a circular frequency plot of data from the SDGs using the SDGs colour palette you can adapt this code.</p>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://drmattg.github.io/SDGsR/" class="external-link">SDGsR</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span></span>
+<span><span class="co">#&gt; ── <span style="font-weight: bold;">Attaching core tidyverse packages</span> ──────────────────────── tidyverse 2.0.0 ──</span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">dplyr    </span> 1.1.3     <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">readr    </span> 2.1.4</span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">forcats  </span> 1.0.0     <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">stringr  </span> 1.5.0</span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">ggplot2  </span> 3.4.3     <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">tibble   </span> 3.2.1</span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">lubridate</span> 1.9.3     <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">tidyr    </span> 1.3.0</span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">purrr    </span> 1.0.2     </span></span>
+<span><span class="co">#&gt; ── <span style="font-weight: bold;">Conflicts</span> ────────────────────────────────────────── tidyverse_conflicts() ──</span></span>
+<span><span class="co">#&gt; <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">purrr</span>::<span style="color: #00BB00;">%||%()</span>   masks <span style="color: #0000BB;">base</span>::%||%()</span></span>
+<span><span class="co">#&gt; <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">dplyr</span>::<span style="color: #00BB00;">filter()</span> masks <span style="color: #0000BB;">stats</span>::filter()</span></span>
+<span><span class="co">#&gt; <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">dplyr</span>::<span style="color: #00BB00;">lag()</span>    masks <span style="color: #0000BB;">stats</span>::lag()</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Use the conflicted package (<span style="color: #0000BB; font-style: italic;">&lt;http://conflicted.r-lib.org/&gt;</span>) to force all conflicts to become errors</span></span></code></pre></div>
+<p>To create a circular frequency plot of data from the SDGs using the
+SDGs colour palette you can adapt this code.</p>
 <div class="section level3">
 <h3 id="first-we-simulate-some-data">First we simulate some data<a class="anchor" aria-label="anchor" href="#first-we-simulate-some-data"></a>
 </h3>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># simulate data</span>
-<span class="va">Goals</span><span class="op">&lt;-</span><span class="fu">SDGsR</span><span class="fu">::</span><span class="fu"><a href="../reference/get_SDGs_goals_titles.html">get_SDGs_goals_titles</a></span><span class="op">(</span><span class="op">)</span>
-<span class="va">Goals</span><span class="op">=</span><span class="va">Goals</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
-  <span class="fu"><a href="https://tibble.tidyverse.org/reference/rownames.html" class="external-link">rowid_to_column</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rowwise.html" class="external-link">rowwise</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>Papers<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span><span class="op">:</span><span class="fl">100</span><span class="op">)</span>,<span class="fl">1</span><span class="co">#,prob =c(0.3,0.19,0.08, 0.07,</span>
-  <span class="co">#                      0.06,</span>
-  <span class="co">#                      0.05,</span>
-  <span class="co">#                      0.05,</span>
-  <span class="co">#                      0.05,</span>
-  <span class="co">#                      0.05,</span>
-  <span class="co">#                      0.05,</span>
-  <span class="co">#                      0.05</span>
-  <span class="co"># )</span>
-  <span class="op">)</span>
-  <span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># simulate data</span></span>
+<span><span class="va">Goals</span><span class="op">&lt;-</span><span class="fu">SDGsR</span><span class="fu">::</span><span class="fu"><a href="../reference/get_SDGs_goals_titles.html">get_SDGs_goals_titles</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="va">Goals</span><span class="op">=</span><span class="va">Goals</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://tibble.tidyverse.org/reference/rownames.html" class="external-link">rowid_to_column</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rowwise.html" class="external-link">rowwise</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>Papers<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span><span class="op">:</span><span class="fl">100</span><span class="op">)</span>,<span class="fl">1</span><span class="co">#,prob =c(0.3,0.19,0.08, 0.07,</span></span>
+<span>  <span class="co">#                      0.06,</span></span>
+<span>  <span class="co">#                      0.05,</span></span>
+<span>  <span class="co">#                      0.05,</span></span>
+<span>  <span class="co">#                      0.05,</span></span>
+<span>  <span class="co">#                      0.05,</span></span>
+<span>  <span class="co">#                      0.05,</span></span>
+<span>  <span class="co">#                      0.05</span></span>
+<span>  <span class="co"># )</span></span>
+<span>  <span class="op">)</span></span>
+<span>  <span class="op">)</span></span></code></pre></div>
 <p>Then we can plot this data using {ggplot2}.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># define the colours</span>
-<span class="va">clr</span><span class="op">=</span><span class="fu">SDGsR</span><span class="fu">::</span><span class="fu"><a href="../reference/SDGs_cols.html">SDGs_cols</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"Goal"</span>,<span class="va">Goals</span><span class="op">$</span><span class="va">rowid</span><span class="op">)</span><span class="op">)</span>
-
-<span class="co"># Make the plot</span>
-<span class="va">p</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">Goals</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">as.factor</a></span><span class="op">(</span><span class="va">rowid</span><span class="op">)</span>, y<span class="op">=</span><span class="va">Papers</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>       <span class="co"># Note that id is a factor. If x is numeric, there is some space between the first bar</span>
-  
-  <span class="co"># This add the bars with a blue color</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html" class="external-link">geom_bar</a></span><span class="op">(</span>stat<span class="op">=</span><span class="st">"identity"</span>, fill<span class="op">=</span><span class="va">clr</span><span class="op">)</span> <span class="op">+</span>
-  
-  <span class="co"># Limits of the plot = very important. The negative value controls the size of the inner circle, the positive one is useful to add size over each bar</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/lims.html" class="external-link">ylim</a></span><span class="op">(</span><span class="op">-</span><span class="fl">100</span>,<span class="fl">120</span><span class="op">)</span> <span class="op">+</span>
-  
-  <span class="co"># Custom the theme: no axis title and no cartesian grid</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_minimal</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span>
-    axis.text <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_blank</a></span><span class="op">(</span><span class="op">)</span>,
-    axis.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_blank</a></span><span class="op">(</span><span class="op">)</span>,
-    panel.grid <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_blank</a></span><span class="op">(</span><span class="op">)</span>,
-    plot.margin <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grid/unit.html" class="external-link">unit</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="op">-</span><span class="fl">2</span>,<span class="fl">4</span><span class="op">)</span>, <span class="st">"cm"</span><span class="op">)</span>     <span class="co"># This remove unnecessary margin around plot</span>
-  <span class="op">)</span> <span class="op">+</span>
-  
-  <span class="co"># This makes the coordinate polar instead of cartesian.</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_polar.html" class="external-link">coord_polar</a></span><span class="op">(</span>start <span class="op">=</span> <span class="fl">0</span><span class="op">)</span>
-<span class="va">p</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># define the colours</span></span>
+<span><span class="va">clr</span><span class="op">=</span><span class="fu">SDGsR</span><span class="fu">::</span><span class="fu"><a href="../reference/SDGs_cols.html">SDGs_cols</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"Goal"</span>,<span class="va">Goals</span><span class="op">$</span><span class="va">rowid</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Make the plot</span></span>
+<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">Goals</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">as.factor</a></span><span class="op">(</span><span class="va">rowid</span><span class="op">)</span>, y<span class="op">=</span><span class="va">Papers</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>       <span class="co"># Note that id is a factor. If x is numeric, there is some space between the first bar</span></span>
+<span>  </span>
+<span>  <span class="co"># This add the bars with a blue color</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html" class="external-link">geom_bar</a></span><span class="op">(</span>stat<span class="op">=</span><span class="st">"identity"</span>, fill<span class="op">=</span><span class="va">clr</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  </span>
+<span>  <span class="co"># Limits of the plot = very important. The negative value controls the size of the inner circle, the positive one is useful to add size over each bar</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/lims.html" class="external-link">ylim</a></span><span class="op">(</span><span class="op">-</span><span class="fl">100</span>,<span class="fl">120</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  </span>
+<span>  <span class="co"># Custom the theme: no axis title and no cartesian grid</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_minimal</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span></span>
+<span>    axis.text <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_blank</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>    axis.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_blank</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>    panel.grid <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_blank</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>    plot.margin <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grid/unit.html" class="external-link">unit</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="op">-</span><span class="fl">2</span>,<span class="fl">4</span><span class="op">)</span>, <span class="st">"cm"</span><span class="op">)</span>     <span class="co"># This remove unnecessary margin around plot</span></span>
+<span>  <span class="op">)</span> <span class="op">+</span></span>
+<span>  </span>
+<span>  <span class="co"># This makes the coordinate polar instead of cartesian.</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_polar.html" class="external-link">coord_polar</a></span><span class="op">(</span>start <span class="op">=</span> <span class="fl">0</span><span class="op">)</span></span>
+<span><span class="va">p</span></span></code></pre></div>
 <p><img src="Circular_Frequency_plot_files/figure-html/unnamed-chunk-3-1.png" width="700"></p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R">
-
-<span class="va">label_data</span> <span class="op">&lt;-</span> <span class="va">Goals</span>
-
-<span class="co"># calculate the ANGLE of the labels</span>
-<span class="va">number_of_bar</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">label_data</span><span class="op">)</span>
-<span class="va">angle</span> <span class="op">&lt;-</span>  <span class="fl">90</span> <span class="op">-</span> <span class="fl">360</span> <span class="op">*</span> <span class="op">(</span><span class="va">label_data</span><span class="op">$</span><span class="va">rowid</span><span class="op">-</span><span class="fl">0.5</span><span class="op">)</span> <span class="op">/</span><span class="va">number_of_bar</span>     <span class="co"># I substract 0.5 because the letter must have the angle of the center of the bars. Not extreme right(1) or extreme left (0)</span>
-
-<span class="co"># calculate the alignment of labels: right or left</span>
-<span class="co"># If I am on the left part of the plot, my labels have currently an angle &lt; -90</span>
-<span class="va">label_data</span><span class="op">$</span><span class="va">hjust</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/ifelse.html" class="external-link">ifelse</a></span><span class="op">(</span> <span class="va">angle</span> <span class="op">&lt;</span> <span class="op">-</span><span class="fl">90</span>, <span class="fl">1</span>, <span class="fl">0</span><span class="op">)</span>
-
-<span class="co"># flip angle BY to make them readable</span>
-<span class="va">label_data</span><span class="op">$</span><span class="va">angle</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/ifelse.html" class="external-link">ifelse</a></span><span class="op">(</span><span class="va">angle</span> <span class="op">&lt;</span> <span class="op">-</span><span class="fl">90</span>, <span class="va">angle</span><span class="op">+</span><span class="fl">180</span>, <span class="va">angle</span><span class="op">)</span>
-<span class="co"># ----- ------------------------------------------- ---- #</span>
-
-
-<span class="co"># Start the plot</span>
-<span class="va">p</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">Goals</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">as.factor</a></span><span class="op">(</span><span class="va">rowid</span><span class="op">)</span>, y<span class="op">=</span><span class="va">Papers</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>       <span class="co"># Note that id is a factor. If x is numeric, there is some space between the first bar</span>
-  
-  <span class="co"># This add the bars with a blue color</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html" class="external-link">geom_bar</a></span><span class="op">(</span>stat<span class="op">=</span><span class="st">"identity"</span>, fill<span class="op">=</span><span class="va">clr</span>, colour<span class="op">=</span><span class="st">"black"</span><span class="op">)</span> <span class="op">+</span>
-  
-  <span class="co"># Limits of the plot = very important. The negative value controls the size of the inner circle, the positive one is useful to add size over each bar</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/lims.html" class="external-link">ylim</a></span><span class="op">(</span><span class="op">-</span><span class="fl">100</span>,<span class="fl">120</span><span class="op">)</span> <span class="op">+</span>
-  
-  <span class="co"># Custom the theme: no axis title and no cartesian grid</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_minimal</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span>
-    axis.text <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_blank</a></span><span class="op">(</span><span class="op">)</span>,
-    axis.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_blank</a></span><span class="op">(</span><span class="op">)</span>,
-    panel.grid <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_blank</a></span><span class="op">(</span><span class="op">)</span>,
-    plot.margin <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grid/unit.html" class="external-link">unit</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>,<span class="fl">4</span><span class="op">)</span>, <span class="st">"cm"</span><span class="op">)</span>      <span class="co"># Adjust the margin to make in sort labels are not truncated!</span>
-  <span class="op">)</span> <span class="op">+</span>
-  
-  <span class="co"># This makes the coordinate polar instead of cartesian.</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_polar.html" class="external-link">coord_polar</a></span><span class="op">(</span>start <span class="op">=</span> <span class="fl">0</span><span class="op">)</span> <span class="op">+</span>
-  
-  <span class="co"># Add the labels, using the label_data dataframe that we have created before</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html" class="external-link">geom_text</a></span><span class="op">(</span>data<span class="op">=</span><span class="va">label_data</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">rowid</span>, y<span class="op">=</span><span class="va">Papers</span><span class="op">+</span><span class="fl">10</span>, label<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"Goal "</span>,<span class="va">rowid</span><span class="op">)</span>, hjust<span class="op">=</span><span class="va">hjust</span><span class="op">)</span>, color<span class="op">=</span><span class="st">"black"</span>, fontface<span class="op">=</span><span class="st">"bold"</span>,alpha<span class="op">=</span><span class="fl">0.7</span>, size<span class="op">=</span><span class="fl">2.5</span>, angle<span class="op">=</span> <span class="va">label_data</span><span class="op">$</span><span class="va">angle</span>, inherit.aes <span class="op">=</span> <span class="cn">FALSE</span> <span class="op">)</span> 
-
-<span class="va">p</span></code></pre></div>
+<code class="sourceCode R"><span></span>
+<span></span>
+<span><span class="va">label_data</span> <span class="op">&lt;-</span> <span class="va">Goals</span></span>
+<span></span>
+<span><span class="co"># calculate the ANGLE of the labels</span></span>
+<span><span class="va">number_of_bar</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">label_data</span><span class="op">)</span></span>
+<span><span class="va">angle</span> <span class="op">&lt;-</span>  <span class="fl">90</span> <span class="op">-</span> <span class="fl">360</span> <span class="op">*</span> <span class="op">(</span><span class="va">label_data</span><span class="op">$</span><span class="va">rowid</span><span class="op">-</span><span class="fl">0.5</span><span class="op">)</span> <span class="op">/</span><span class="va">number_of_bar</span>     <span class="co"># I substract 0.5 because the letter must have the angle of the center of the bars. Not extreme right(1) or extreme left (0)</span></span>
+<span></span>
+<span><span class="co"># calculate the alignment of labels: right or left</span></span>
+<span><span class="co"># If I am on the left part of the plot, my labels have currently an angle &lt; -90</span></span>
+<span><span class="va">label_data</span><span class="op">$</span><span class="va">hjust</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/ifelse.html" class="external-link">ifelse</a></span><span class="op">(</span> <span class="va">angle</span> <span class="op">&lt;</span> <span class="op">-</span><span class="fl">90</span>, <span class="fl">1</span>, <span class="fl">0</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># flip angle BY to make them readable</span></span>
+<span><span class="va">label_data</span><span class="op">$</span><span class="va">angle</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/ifelse.html" class="external-link">ifelse</a></span><span class="op">(</span><span class="va">angle</span> <span class="op">&lt;</span> <span class="op">-</span><span class="fl">90</span>, <span class="va">angle</span><span class="op">+</span><span class="fl">180</span>, <span class="va">angle</span><span class="op">)</span></span>
+<span><span class="co"># ----- ------------------------------------------- ---- #</span></span>
+<span></span>
+<span></span>
+<span><span class="co"># Start the plot</span></span>
+<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">Goals</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">as.factor</a></span><span class="op">(</span><span class="va">rowid</span><span class="op">)</span>, y<span class="op">=</span><span class="va">Papers</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>       <span class="co"># Note that id is a factor. If x is numeric, there is some space between the first bar</span></span>
+<span>  </span>
+<span>  <span class="co"># This add the bars with a blue color</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html" class="external-link">geom_bar</a></span><span class="op">(</span>stat<span class="op">=</span><span class="st">"identity"</span>, fill<span class="op">=</span><span class="va">clr</span>, colour<span class="op">=</span><span class="st">"black"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  </span>
+<span>  <span class="co"># Limits of the plot = very important. The negative value controls the size of the inner circle, the positive one is useful to add size over each bar</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/lims.html" class="external-link">ylim</a></span><span class="op">(</span><span class="op">-</span><span class="fl">100</span>,<span class="fl">120</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  </span>
+<span>  <span class="co"># Custom the theme: no axis title and no cartesian grid</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_minimal</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span></span>
+<span>    axis.text <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_blank</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>    axis.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_blank</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>    panel.grid <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_blank</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>    plot.margin <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grid/unit.html" class="external-link">unit</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>,<span class="fl">4</span><span class="op">)</span>, <span class="st">"cm"</span><span class="op">)</span>      <span class="co"># Adjust the margin to make in sort labels are not truncated!</span></span>
+<span>  <span class="op">)</span> <span class="op">+</span></span>
+<span>  </span>
+<span>  <span class="co"># This makes the coordinate polar instead of cartesian.</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_polar.html" class="external-link">coord_polar</a></span><span class="op">(</span>start <span class="op">=</span> <span class="fl">0</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  </span>
+<span>  <span class="co"># Add the labels, using the label_data dataframe that we have created before</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html" class="external-link">geom_text</a></span><span class="op">(</span>data<span class="op">=</span><span class="va">label_data</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">rowid</span>, y<span class="op">=</span><span class="va">Papers</span><span class="op">+</span><span class="fl">10</span>, label<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"Goal "</span>,<span class="va">rowid</span><span class="op">)</span>, hjust<span class="op">=</span><span class="va">hjust</span><span class="op">)</span>, color<span class="op">=</span><span class="st">"black"</span>, fontface<span class="op">=</span><span class="st">"bold"</span>,alpha<span class="op">=</span><span class="fl">0.7</span>, size<span class="op">=</span><span class="fl">2.5</span>, angle<span class="op">=</span> <span class="va">label_data</span><span class="op">$</span><span class="va">angle</span>, inherit.aes <span class="op">=</span> <span class="cn">FALSE</span> <span class="op">)</span> </span>
+<span></span>
+<span><span class="va">p</span></span></code></pre></div>
 <p><img src="Circular_Frequency_plot_files/figure-html/unnamed-chunk-3-2.png" width="700"></p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R">
-
-<span class="co"># ggplot(Goals, aes(x = datcall1.title, y = Papers,</span>
-<span class="co">#                                fill = clr)) + </span>
-<span class="co">#   geom_bar(width = 0.9, stat="identity") + </span>
-<span class="co">#   coord_polar(theta = "y") +</span>
-<span class="co">#   xlab("") + ylab("") +</span>
-<span class="co">#   ylim(c(0,100)) +</span>
-<span class="co">#   #ggtitle("Top Product Categories Influenced by Internet") +</span>
-<span class="co">#   geom_text(data = Goals, hjust = 1, size = 3,</span>
-<span class="co">#             aes(x = datcall1.title, y = 0, label = paste0("Goal ", rowid))) +</span>
-<span class="co">#   theme_minimal() +</span>
-<span class="co">#   theme(legend.position = "none",</span>
-<span class="co">#         panel.grid.major = element_blank(),</span>
-<span class="co">#         panel.grid.minor = element_blank(),</span>
-<span class="co">#         axis.line = element_blank(),</span>
-<span class="co">#         axis.text.y = element_blank(),</span>
-<span class="co">#         axis.text.x = element_blank(),</span>
-<span class="co">#         axis.ticks = element_blank())</span></code></pre></div>
+<code class="sourceCode R"><span></span>
+<span></span>
+<span><span class="co"># ggplot(Goals, aes(x = datcall1.title, y = Papers,</span></span>
+<span><span class="co">#                                fill = clr)) + </span></span>
+<span><span class="co">#   geom_bar(width = 0.9, stat="identity") + </span></span>
+<span><span class="co">#   coord_polar(theta = "y") +</span></span>
+<span><span class="co">#   xlab("") + ylab("") +</span></span>
+<span><span class="co">#   ylim(c(0,100)) +</span></span>
+<span><span class="co">#   #ggtitle("Top Product Categories Influenced by Internet") +</span></span>
+<span><span class="co">#   geom_text(data = Goals, hjust = 1, size = 3,</span></span>
+<span><span class="co">#             aes(x = datcall1.title, y = 0, label = paste0("Goal ", rowid))) +</span></span>
+<span><span class="co">#   theme_minimal() +</span></span>
+<span><span class="co">#   theme(legend.position = "none",</span></span>
+<span><span class="co">#         panel.grid.major = element_blank(),</span></span>
+<span><span class="co">#         panel.grid.minor = element_blank(),</span></span>
+<span><span class="co">#         axis.line = element_blank(),</span></span>
+<span><span class="co">#         axis.text.y = element_blank(),</span></span>
+<span><span class="co">#         axis.text.x = element_blank(),</span></span>
+<span><span class="co">#         axis.ticks = element_blank())</span></span></code></pre></div>
 </div>
   </div>
 
@@ -238,7 +236,7 @@
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer>
