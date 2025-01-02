@@ -88,7 +88,7 @@ Goals %>%
   kableExtra::kable() %>%
   kableExtra::kable_styling(bootstrap_options = "striped", full_width = FALSE)
 ```
-![SDG Goals Table](docs/images/get_SDGs_goals_kable.png)
+![SDG Goals Table](docs/images/goal15_table.png)
 
 
 # Mathematics
