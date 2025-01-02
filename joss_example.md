@@ -37,7 +37,6 @@ aas-journal: Astrophysical Journal <- The name of the AAS journal.
 
 # Summary
 
-
 The UN World Data Forum highlighted that the power of data can only be harnessed, and its true value realized, by bringing it together, through statistical analysis, and by connecting it to other data sets to inform solutions for challenges facing humanity. (1)The R  programming language is  the most utilized programming language for statistical analysis (2). Because of R's open-source nature, its robust community of users, and its support for reproducibility, it has quickly become a key tool in the Open Science movement. R facilitates researchers’ and data scientists’ abilities to disseminate state-of-the-art statistical methods, share their own analysis work, and reproduce the work of others.(3) These characteristics of R make it an optimal tool for statistical analysis of the SDG’s, however, no current tool exists to leverage the United Nations Statistics Division SDG API and seamlessly import SDG data into R. The SDGsR package addresses this gap, providing a valuable resource for integrating SDG data with R for more comprehensive analysis and insights.
 
 # Statement of need
@@ -49,6 +48,47 @@ R is an open-source software and a powerful programming language commonly used f
 Application programming interfaces (APIs) are useful for data integration, enrichment, access, and sharing. APIs functionality for exchanging information have a significant impact on growth, efficiency, and innovation in a variety of fields such as healthcare, automotive, and banking. The potential for APIs has been recognized through the 21st Century Cures Act where it is required that health information technology developers make standards-based APIs available (Gordon & Rudin, 2022). 
 
 The United Nations Statistics Division has an API that allows users to explore official SDG data reported by custodian agencies (UNSD SDGs API, n.d.). However, manually downloading the most updated data from the SDG API comes with the additional steps of changing the data format, reading the file into R, etc. SDGsR addresses this challenge by leveraging the SDG API in an R package with functions to access updated SDG data efficiently in the R environment. Such data and information are pulled directly from SDG API v5. 
+
+
+# Functionality 
+
+SDGsR is an R package developed to interact with and leverage the UN Sustainable Development Goals API (UNSDGAPIV5) by providing the ability to:
+- extract SDG indicator data for specific countries
+- extract information on each SDG goal and its targets
+- explore the SDG Goals, Targets, and indicators as a dataframe
+- retrieve country codes
+- access the SDG color palette
+
+The package is inspired by an article discussing extracting API data in R (Kim, 2019). SDGsR is available on GitHub at https://github.com/DrMattG/SDGsR. 
+
+# Usage
+- SDG Goals and Indicators
+- Country Code
+- Color palette 
+
+To begin using this package, use the following installation code:
+
+```
+devtools::install_github("DrMattG/SDGsR", dependencies = TRUE)
+```
+
+```
+# load package
+library(SDGsR)
+```
+
+To get the text of the Goals we can use the SDGsR::get_SDGs_goals() function. This gathers together all the Goals in to a single dataframe.
+
+```
+Goals <- get_SDGs_goals() # get goals, targets, and indicator descriptions as a dataframe
+
+Goals %>%
+  select(goal, code, description) %>%
+  filter(goal == 15) %>%
+  kableExtra::kable() %>%
+  kableExtra::kable_styling(bootstrap_options = "striped", full_width = FALSE)
+```
+![SDG Goals Table](docs/images/get_SDGs_goals_kable.png)
 
 
 # Mathematics
