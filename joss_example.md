@@ -1,0 +1,99 @@
+---
+title: 'SDGsR: An R package for interacting with the UN Sustainable Development Goals'
+tags:
+  - R
+  - united nations
+  - api
+  - sdg
+authors:
+  - name: Dr. Matthew Grainger
+    orcid: 0000-0001-8426-6495
+    equal-contrib: true
+    affiliation: 1
+  - name: Connor Flynn
+    orcid: 0009-0004-8407-7124
+    equal-contrib: true # (This is how you can denote equal contributions between multiple authors)
+    affiliation: 2
+  - name: Victoria DelaCruz
+    orcid: 0009-0007-2682-8710
+    equal-contrib: true
+    affiliation: 2
+    
+affiliations:
+ - name: Norwegian Institute for Nature Research, Trondheim, Norway
+   index: 1
+   ror: 00hx57361
+ - name: Chaminade University of Honolulu Hawaii, Honolulu, USA
+   index: 2
+   
+date: 1 January 2025
+bibliography: paper.bib
+
+# Optional fields if submitting to a AAS journal too, see this blog post:
+# https://blog.joss.theoj.org/2018/12/a-new-collaboration-with-aas-publishing
+aas-doi: 10.3847/xxxxx <- update this with the DOI from AAS once you know it.
+aas-journal: Astrophysical Journal <- The name of the AAS journal.
+---
+
+# Summary
+
+
+The UN World Data Forum highlighted that the power of data can only be harnessed, and its true value realized, by bringing it together, through statistical analysis, and by connecting it to other data sets to inform solutions for challenges facing humanity. (1)The R  programming language is  the most utilized programming language for statistical analysis (2). Because of R's open-source nature, its robust community of users, and its support for reproducibility, it has quickly become a key tool in the Open Science movement. R facilitates researchers’ and data scientists’ abilities to disseminate state-of-the-art statistical methods, share their own analysis work, and reproduce the work of others.(3) These characteristics of R make it an optimal tool for statistical analysis of the SDG’s, however, no current tool exists to leverage the United Nations Statistics Division SDG API and seamlessly import SDG data into R. The SDGsR package addresses this gap, providing a valuable resource for integrating SDG data with R for more comprehensive analysis and insights.
+
+# Statement of need
+
+The Sustainable Development Goals (SDGs) are a set of measurable, specific, and time-sensitive goals built with a mission for national development. Available, accurate, and quality data and statistics are crucial in making significant progress toward achieving these goals (Nilashi et. al, 2023).  Furthermore, analyzing SDG data is necessary for assessing progress, informing policy-making, allocating resources, and identifying existing gaps (RELX, n.d.). 
+
+R is an open-source software and a powerful programming language commonly used for data analysis, modeling, and visualization. It allows its users to utilize data to perform analysis, produce visualizations, and promote data reproducibility and transparency in their work (Lai et. al, 2023). R packages are fundamental units of reproducible R code that often include R functions, documentation, and sample data. Organizing code in a package not only assists in running the user’s code more efficiently, but also provides a space to share their code with others where they can easily download and run code (Wickham & Bryan, 2023). Utilizing R and R packages to analyze SDG data is becoming increasingly more common in the data analysis environment. Other existing R packages include SDGdetector and text2sdg. 
+
+Application programming interfaces (APIs) are useful for data integration, enrichment, access, and sharing. APIs functionality for exchanging information have a significant impact on growth, efficiency, and innovation in a variety of fields such as healthcare, automotive, and banking. The potential for APIs has been recognized through the 21st Century Cures Act where it is required that health information technology developers make standards-based APIs available (Gordon & Rudin, 2022). 
+
+The United Nations Statistics Division has an API that allows users to explore official SDG data reported by custodian agencies (UNSD SDGs API, n.d.). However, manually downloading the most updated data from the SDG API comes with the additional steps of changing the data format, reading the file into R, etc. SDGsR addresses this challenge by leveraging the SDG API in an R package with functions to access updated SDG data efficiently in the R environment. Such data and information are pulled directly from SDG API v5. 
+
+
+# Mathematics
+
+Single dollars ($) are required for inline mathematics e.g. $f(x) = e^{\pi/x}$
+
+Double dollars make self-standing equations:
+
+$$\Theta(x) = \left\{\begin{array}{l}
+0\textrm{ if } x < 0\cr
+1\textrm{ else}
+\end{array}\right.$$
+
+You can also use plain \LaTeX for equations
+\begin{equation}\label{eq:fourier}
+\hat f(\omega) = \int_{-\infty}^{\infty} f(x) e^{i\omega x} dx
+\end{equation}
+and refer to \autoref{eq:fourier} from text.
+
+# Citations
+
+Citations to entries in paper.bib should be in
+[rMarkdown](http://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html)
+format.
+
+If you want to cite a software repository URL (e.g. something on GitHub without a preferred
+citation) then you can do it with the example BibTeX entry below for @fidgit.
+
+For a quick reference, the following citation commands can be used:
+- `@author:2001`  ->  "Author et al. (2001)"
+- `[@author:2001]` -> "(Author et al., 2001)"
+- `[@author1:2001; @author2:2001]` -> "(Author1 et al., 2001; Author2 et al., 2002)"
+
+# Figures
+
+Figures can be included like this:
+![Caption for example figure.\label{fig:example}](figure.png)
+and referenced from text using \autoref{fig:example}.
+
+Figure sizes can be customized by adding an optional second parameter:
+![Caption for example figure.](figure.png){ width=20% }
+
+# Acknowledgements
+
+We acknowledge contributions from Brigitta Sipocz, Syrtis Major, and Semyeong
+Oh, and support from Kathryn Johnston during the genesis of this project.
+
+# References
