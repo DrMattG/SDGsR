@@ -50,6 +50,8 @@ Application programming interfaces (APIs) are useful for data integration, enric
 The United Nations Statistics Division has an API that allows users to explore official SDG data reported by custodian agencies (UNSD SDGs API, n.d.). However, manually downloading the most updated data from the SDG API comes with the additional steps of changing the data format, reading the file into R, etc. SDGsR addresses this challenge by leveraging the SDG API in an R package with functions to access updated SDG data efficiently in the R environment. Such data and information are pulled directly from SDG API v5. 
 
 
+![SDG Goals Table](docs/images/SDGsR_Infographic.png)
+
 # Functionality 
 
 SDGsR is an R package developed to interact with and leverage the UN Sustainable Development Goals API (UNSDGAPIV5) by providing the ability to:
