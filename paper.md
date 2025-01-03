@@ -8,15 +8,12 @@ tags:
 authors:
   - name: Dr. Matthew Grainger
     orcid: 0000-0001-8426-6495
-    equal-contrib: true
     affiliation: 1
   - name: Connor Flynn
     orcid: 0009-0004-8407-7124
-    equal-contrib: true # (This is how you can denote equal contributions between multiple authors)
     affiliation: 2
   - name: Victoria DelaCruz
     orcid: 0009-0007-2682-8710
-    equal-contrib: true
     affiliation: 2
     
 affiliations:
