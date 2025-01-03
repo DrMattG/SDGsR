@@ -55,20 +55,16 @@ The United Nations Statistics Division has an API that allows users to explore o
 # Functionality 
 
 SDGsR is an R package developed to interact with and leverage the UN Sustainable Development Goals API (UNSDGAPIV5) by providing the ability to:
-- extract SDG indicator data for specific countries
-- extract information on each SDG goal and its targets
-- explore the SDG Goals, Targets, and indicators as a dataframe
-- retrieve country codes
-- access the SDG color palette
+- extract textual information on each SDG, including targets and indicators
+- identify country codes 
+- utilize the SDG color palette with ggplot
+- pull most recent/historical indicator data for specific countries
 
 The package is inspired by an article discussing extracting API data in R (Kim, 2019). SDGsR is available on GitHub at https://github.com/DrMattG/SDGsR. 
 
 # Usage
-- SDG Goals and Indicators
-- Country Code
-- Color palette 
 
-To begin using this package, use the following installation code:
+To begin using this package, a user can use the following installation code:
 
 ```
 devtools::install_github("DrMattG/SDGsR", dependencies = TRUE)
@@ -79,7 +75,7 @@ devtools::install_github("DrMattG/SDGsR", dependencies = TRUE)
 library(SDGsR)
 ```
 
-To get the text of the Goals we can use the SDGsR::get_SDGs_goals() function. This gathers together all the Goals in to a single dataframe.
+To get the text of the Goals, use the SDGsR::get_SDGs_goals() function. This gathers together all the Goals in to a single dataframe.
 
 ```
 Goals <- get_SDGs_goals() # get goals, targets, and indicator descriptions as a dataframe
@@ -92,7 +88,7 @@ Goals %>%
 ```
 ![SDG Goals Table](docs/images/goal15_table.png)
 
-The most useful function is the `SDGsR::get_indicator()` function that allows the user to query the data for a specific indicator in a specific country. First we need to make sure we know which is the correct code for the country and for the indicator as the API uses these to distinguish which data to export. There is an country list in the package that you can use to find the name of the country you are looking for.
+The most useful function is the `SDGsR::get_indicator()` function that allows the user to query the data for a specific indicator in a specific country. First, it is necessary to know the correct code for the country and for the indicator as the API uses these to distinguish which data to export. There is an country list in the package that can be utilized to find country names.
 
 ```
 head(get_country_list())
@@ -100,7 +96,7 @@ head(get_country_list())
 #> [5] "American Samoa" "Andorra"
 ```
 
-To find a specific indicator we need to know the right code to use. We can get a list of all the indicators by using SDGsR::get_indicator_list. I am interested in the indicators that are in Goal 15 Life on Land.
+To find a specific indicator, a user must know the right code to use. Users can retrieve a list of all the indicators by using SDGsR::get_indicator_list. This example demonstrated indicators for Goal 15 Life on Land.
 
 ```
 ind_lst <- get_indicator_list()
@@ -113,7 +109,7 @@ ind_lst %>%
 
 ![SDG Goals Table](docs/images/targets15_table.png)
 
-Let’s look at the indicator for Target 15.4, “15.4.1: Coverage by protected areas of important sites for mountain biodiversity” and we will specify Norway as our country of interest. We know that Norway is named Norway on our country list (which is obvious but some countries are named in different ways to how we might commonly expect, e.g. Vietnam is specified as “Viet Nam”, Venezuela is specified as “Venezuela (Bolivarian Republic of)”).
+This example looks at the indicator for Target 15.4, “15.4.1: Coverage by protected areas of important sites for mountain biodiversity” and specifies Norway as our country of interest. A user can confirm that Norway is named Norway on our country list, however, there are some countries  named in different ways than what might be commonly expected, e.g. Vietnam is specified as “Viet Nam”, Venezuela is specified as “Venezuela (Bolivarian Republic of)”).
 
 ```
 Norway_code <- lookup_country(code="M49", country = "Norway")
@@ -125,7 +121,7 @@ Norway_code
 Norway <-g et_indicator(Country = Norway_code, indicator = "15.4.1")
 ```
 
-We can then make a plot of this data using the SDGsR::SDGs_colours() function.
+A user can utilize the SDGsR::SDGs_colours() function in conjunction with ggplot to match plot colors with the corresponding SDG color.
 
 ```
 Norway %>% 
