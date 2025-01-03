@@ -90,6 +90,54 @@ Goals %>%
 ```
 ![SDG Goals Table](docs/images/goal15_table.png)
 
+The most useful function is the `SDGsR::get_indicator()` function that allows the user to query the data for a specific indicator in a specific country. First we need to make sure we know which is the correct code for the country and for the indicator as the API uses these to distinguish which data to export. There is an country list in the package that you can use to find the name of the country you are looking for.
+
+```
+head(get_country_list())
+#> [1] "Afghanistan"    "Åland Islands"  "Albania"        "Algeria"       
+#> [5] "American Samoa" "Andorra"
+```
+
+To find a specific indicator we need to know the right code to use. We can get a list of all the indicators by using SDGsR::get_indicator_list. I am interested in the indicators that are in Goal 15 Life on Land.
+
+```
+ind_lst <- get_indicator_list()
+
+ind_lst %>% 
+  filter(goal=="15") %>% 
+  select(target, code, description) %>% 
+  kableExtra::kable()
+```
+
+![SDG Goals Table](docs/images/targets15_table.png)
+
+Let’s look at the indicator for Target 15.4, “15.4.1: Coverage by protected areas of important sites for mountain biodiversity” and we will specify Norway as our country of interest. We know that Norway is named Norway on our country list (which is obvious but some countries are named in different ways to how we might commonly expect, e.g. Vietnam is specified as “Viet Nam”, Venezuela is specified as “Venezuela (Bolivarian Republic of)”).
+
+```
+Norway_code <- lookup_country(code="M49", country = "Norway")
+Norway_code
+#> [1] 578
+```
+
+```
+Norway <-g et_indicator(Country = Norway_code, indicator = "15.4.1")
+```
+
+We can then make a plot of this data using the SDGsR::SDGs_colours() function.
+
+```
+Norway %>% 
+  select(timePeriodStart, value, seriesDescription) %>% 
+  ggplot(aes(timePeriodStart, as.numeric(value))) +
+  geom_area(fill = SDGs_cols("Goal15"), color = "black") +
+  labs(x = "Year", y = "% Mountain Area Protected") +
+  ggtitle(label = paste0(Norway$seriesDescription[1])) +
+  ggpubr::theme_pubclean() +
+  theme(plot.title = element_text(size = 12))
+```
+
+![SDG Goals Table](docs/images/norway_protected_area.png)
+
 
 # Mathematics
 
