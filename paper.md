@@ -115,7 +115,7 @@ Norway_code
 ```
 
 ```
-Norway <-g et_indicator(Country = Norway_code, indicator = "15.4.1")
+Norway <-get_indicator(Country = Norway_code, indicator = "15.4.1")
 ```
 
 A user can utilize the SDGsR::SDGs_colours() function in conjunction with ggplot to match plot colors with the corresponding SDG color.
