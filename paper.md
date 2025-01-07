@@ -46,6 +46,8 @@ The United Nations Statistics Division has an API that allows users to explore o
 
 ![SDG Goals Table](docs/images/SDGsR_Infographic.png)
 
+**Figure 1.** Flowchart demonstrating data flow from the UN Sustainable Development Goals API through SDGsR to leverage the statistical power and open source community of R. 
+
 # Functionality 
 
 SDGsR is an R package developed to interact with and leverage the UN Sustainable Development Goals API (UNSDGAPIV5) by providing the ability to:
