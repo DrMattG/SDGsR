@@ -54,7 +54,7 @@ SDGsR is an R package developed to interact with and leverage the UN Sustainable
 - utilize the SDG color palette with ggplot
 - pull most recent/historical indicator data for specific countries
 
-The package is inspired by an article discussing extracting API data in R (Kim, 2019). SDGsR is available on GitHub at https://github.com/DrMattG/SDGsR. 
+The package is inspired by an article discussing extracting API data in R [@kim_getting_2019]. SDGsR is available on GitHub at https://github.com/DrMattG/SDGsR. 
 
 # Usage
 
