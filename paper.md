@@ -90,7 +90,7 @@ head(get_country_list())
 #> [5] "American Samoa" "Andorra"
 ```
 
-To find a specific indicator, a user must know the right code to use. Users can retrieve a list of all the indicators by using SDGsR::get_indicator_list. This example demonstrated indicators for Goal 15 Life on Land.
+To find a specific indicator, a user must know the right code to use. Users can retrieve a list of all the indicators by using `SDGsR::get_indicator_list()`. This example demonstrated indicators for Goal 15 Life on Land.
 
 ```
 ind_lst <- get_indicator_list()
